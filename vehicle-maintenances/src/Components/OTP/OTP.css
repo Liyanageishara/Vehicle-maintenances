@@ -1,0 +1,56 @@
+/* Background container */
+.otp-background {
+    background-image: url('/src//Asserts/Login/img-01.png'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Centered container for OTP */
+  .otp-container {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    color: white;
+  }
+  
+  /* Heading */
+  .otp-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* OTP input */
+  .otp-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+  }
+  
+  /* Verify button */
+  .otp-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff007f;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .otp-button:hover {
+    background-color: #e6006f;
+  }
+  

@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
 import './Login.css'; // Importing the CSS
 import { FaUserAlt, FaKey } from 'react-icons/fa'; // For icons
+import { Link } from 'react-router-dom';
+
 const Login = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
     type: '',
   });
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login data submitted:', formData);
     // Add your login logic here
   };
+
   return (
     <div className="login-container">
       <div className="login-box">
@@ -73,10 +78,11 @@ const Login = () => {
           </button>
         </form>
         <div className="forgot-password">
-          <a href="#">Forgot password?</a>
+          <Link to="/forget-password">Forgot password?</Link>
         </div>
       </div>
     </div>
   );
 };
+
 export default Login;

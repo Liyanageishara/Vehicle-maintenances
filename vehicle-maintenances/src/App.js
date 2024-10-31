@@ -1,11 +1,25 @@
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import './main.scss';
-import Login from './Login/Login';
+import Login from './Components/Login/Login';
+import ForgetPassword from './Components/Forget_Password/ForgetPassword';
+import OTPComponent from './Components/OTP/OTP';
+import ChangePassword from './Components/ChangePassword/ChangePassword';
+
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/otp" element={<OTPComponent />} /> {/* OTP route */}
+          <Route path="/change-password" element={<ChangePassword />} /> {/* Change Password route */}
+        </Routes>
+      </div>
+    </Router>
   );
 }
+
 export default App;
