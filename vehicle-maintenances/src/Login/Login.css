@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('../Img/Login/img-1.png'); /* Replace with your background */
+    background-size: cover;
+    background-position: center;
+  }
+  .login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-box {
+    background: rgba(20, 20, 20, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    width: 350px;
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+  .login-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .input-group-text {
+    background: transparent;
+    border: none;
+    color: white;
+  }
+  .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+  }
+  .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .btn-primary {
+    background-color: #fbf7f8;
+    border: none;
+    color: black;
+  }
+  .forgot-password {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .forgot-password a {
+    color: white;
+    text-decoration: none;
+  }
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
