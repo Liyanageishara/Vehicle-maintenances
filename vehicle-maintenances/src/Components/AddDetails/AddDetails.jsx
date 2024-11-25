@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-//import "./AddDetails.css";
+import "./AddDetails.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, Table } from 'react-bootstrap';
 
@@ -9,7 +9,7 @@ const AddDetails = () => {
     vehicleNumber: '',
     place: '',
     currentDistance: '',
-    rows: [{ type: '', description: '', cost: 0 }],
+    rows: [{ type: '', part: '', description: '', cost: 0 }],
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -34,6 +34,7 @@ const AddDetails = () => {
 
     formData.rows.forEach((row, index) => {
       if (!row.type) errors[`rowType${index}`] = "Please select a type.";
+      if (!row.part) errors[`rowPart${index}`] = "Please select a part.";
       const cost = parseFloat(row.cost);
       if (isNaN(cost) || cost <= 0) errors[`rowCost${index}`] = "Please enter a valid cost.";
     });
@@ -74,7 +75,7 @@ const AddDetails = () => {
   };
 
   const addRow = useCallback(() => {
-    setFormData({ ...formData, rows: [...formData.rows, { type: '', description: '', cost: 0 }] });
+    setFormData({ ...formData, rows: [...formData.rows, { type: '', part: '', description: '', cost: 0 }] });
   }, [formData]);
 
   const removeRow = useCallback((index) => {
@@ -92,8 +93,9 @@ const AddDetails = () => {
 
   return (
     <div className="add-details-form">
-      <h3>Add Vehicle Details</h3>
+      
       <Form>
+      <h3>Add Vehicle Details</h3>
         {/* Date Field */}
         <Form.Group controlId="date">
           <Form.Label>Date</Form.Label>
@@ -149,6 +151,7 @@ const AddDetails = () => {
           <thead>
             <tr>
               <th>Type</th>
+              <th>Part</th>
               <th>Description</th>
               <th>Cost</th>
               <th>Action</th>
@@ -170,9 +173,28 @@ const AddDetails = () => {
                     <option value="buy">Buy</option>
                     <option value="replace">Replace</option>
                     <option value="repairer">Repairer</option>
+                    <option value="other">Repairer</option>
                   </Form.Control>
                   <Form.Control.Feedback type="invalid">
                     {formErrors[`rowType${index}`]}
+                  </Form.Control.Feedback>
+                </td>
+                <td>
+                  <Form.Control
+                    as="select"
+                    name="part"
+                    value={row.part}
+                    onChange={(e) => handleRowChange(index, e)}
+                    isInvalid={!!formErrors[`rowPart${index}`]}
+                  >
+                    <option value="">Select</option>
+                    <option value="weal">Weal</option>
+                    <option value="body">Body</option>
+                    <option value="engine">Engine</option>
+                    <option value="other">Other</option>
+                  </Form.Control>
+                  <Form.Control.Feedback type="invalid">
+                    {formErrors[`rowPart${index}`]}
                   </Form.Control.Feedback>
                 </td>
                 <td>
