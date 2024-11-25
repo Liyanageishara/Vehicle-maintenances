@@ -1,23 +1,12 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import './main.scss';
+import Dashbord from './Components/Dashboard/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App d-flex align-items-center justify-content-center vh-100" style={{ backgroundImage: 'url("your-background-image.jpg")', backgroundSize: 'cover' }}>
+      <Dashbord />
     </div>
   );
 }
