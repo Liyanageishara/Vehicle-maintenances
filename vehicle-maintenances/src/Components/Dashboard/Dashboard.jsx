@@ -53,6 +53,9 @@ const Dashbord = () => {
             </button>
           </div>
         </div>
+        <div>
+        <button className="vehicle-add-button">Add Vehicle</button>
+        </div>
       </div>
     );
 };

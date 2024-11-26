@@ -41,3 +41,18 @@ body {
   font-size: 1.2rem;
   margin-top: 5px;
 }
+.vehicle-add-button {
+  width: 180px;
+  height: 50px;
+  background: linear-gradient(90deg, #d100ff, #ff5e8a);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.vehicle-add-button:hover {
+  opacity:0.9;
+}

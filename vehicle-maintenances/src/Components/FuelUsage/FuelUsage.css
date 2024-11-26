@@ -1,0 +1,67 @@
+.fuel-usage-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/src/Images/imageone.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+    
+    /* Flexbox for alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .form-control {
+    background: rgba(197, 188, 188, 0.8);
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+  
+  .form-control:focus {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+  }
+  
+  .button-group {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button-group button {
+    width: 45%;
+    border: none;
+    background: linear-gradient(90deg, #ac8fb3, #da98a8);
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .button-group .btn-submit:hover,
+  .button-group .btn-view:hover {
+    background: #473249;
+  }
+  
