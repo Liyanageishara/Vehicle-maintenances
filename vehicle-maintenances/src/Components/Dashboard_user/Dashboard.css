@@ -1,0 +1,58 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/src/Asserts/Login/img-01.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .dashbord-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 700px;
+    max-height: 700px;
+    margin: auto;
+  }
+  
+  .icon-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    background: transparent;
+    padding: 40px; 
+    transition: background-color 0.3s ease;
+  }
+  
+  .icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+  
+  .icon-btn .icon:hover {
+    color: #03122e;
+  }
+  
+  .icon {
+    color: #e4d4d4;
+  }
+  
+  .text-center p {
+    font-size: 1.2rem;
+    margin-top: 5px;
+  }
+  .vehicle-add-button {
+    width: 180px;
+    height: 50px;
+    background: linear-gradient(90deg, #d100ff, #ff5e8a);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .vehicle-add-button:hover {
+    opacity:0.9;
+  }
