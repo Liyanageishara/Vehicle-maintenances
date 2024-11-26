@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./FuelUsage.css"; // Custom CSS for styling
+import "./VehicleRevenueLicence.css"; // Import custom CSS
 import { useNavigate, useLocation } from "react-router-dom";
 
-const FuelUsage = () => {
+const VehicleRevenueLicence = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -13,7 +13,7 @@ const FuelUsage = () => {
   const [form, setForm] = useState({
     date: "",
     cost: "",
-    fuelLiters: "",
+    validate: "",
     description: "",
   });
 
@@ -25,7 +25,7 @@ const FuelUsage = () => {
 
   // Handle form submission
   const handleSubmit = () => {
-    const data = { ...form, vehicleNumber };
+    const data = { vehicleNumber, ...form };
     console.log("Submitted Data:", data);
     // Replace with an API call or further processing
   };
@@ -35,9 +35,19 @@ const FuelUsage = () => {
       <button className="back-button" onClick={() => navigate(-1)}>
         Back
       </button>
-      <h2 className="title">Fuel Usage</h2>
+      <h2 className="title">VEHICLE REVENUE LICENCE</h2>
 
       {/* Input Fields */}
+      <div className="form-group">
+        <input
+          type="text"
+          className="form-control"
+          name="vehicleNumber"
+          placeholder="Vehicle No"
+          value={vehicleNumber} // Pre-filled from state
+          readOnly
+        />
+      </div>
       <div className="form-group">
         <input
           type="date"
@@ -52,16 +62,6 @@ const FuelUsage = () => {
         <input
           type="text"
           className="form-control"
-          name="vehicleNumber"
-          placeholder="Vehicle Number"
-          value={vehicleNumber} // Pre-filled from state
-          readOnly
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="text"
-          className="form-control"
           name="cost"
           placeholder="Cost"
           value={form.cost}
@@ -70,11 +70,11 @@ const FuelUsage = () => {
       </div>
       <div className="form-group">
         <input
-          type="text"
+          type="date"
           className="form-control"
-          name="fuelLiters"
-          placeholder="Fuel Liters"
-          value={form.fuelLiters}
+          name="validate"
+          placeholder="Validate"
+          value={form.validate}
           onChange={handleFormChange}
         />
       </div>
@@ -94,7 +94,7 @@ const FuelUsage = () => {
         <button className="btn btn-submit" onClick={handleSubmit}>
           SUBMIT
         </button>
-        <button className="btn btn-view" onClick={() => navigate("/viewFuelUsage")}>
+        <button className="btn btn-view" onClick={() => navigate("/ViewRevenueLicence")}>
           VIEW
         </button>
       </div>
@@ -102,4 +102,4 @@ const FuelUsage = () => {
   );
 };
 
-export default FuelUsage;
+export default VehicleRevenueLicence;

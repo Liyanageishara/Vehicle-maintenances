@@ -1,9 +1,19 @@
-/* General container styling */
-.container {
+/* Body styling */
+body {
+    background-image: url("/src/Asserts/Login/img-01.png"); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* General container styling */
+  .container {
     background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
     color: white;
-    min-height: 400px;
-    width: 50%; /* Adjusted width */
+    min-height: 400px; /* Set a minimum height */
+    width: 50%; /* Adjust container width */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -13,19 +23,7 @@
     border-radius: 10px;
     padding: 20px;
     position: relative;
-    z-index: 2;
-  }
-  
-  /* Back button styling */
-  .back-button {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+    z-index: 2; /* Ensure it's above the background */
   }
   
   /* Title styling */
@@ -35,10 +33,13 @@
     margin-bottom: 20px;
   }
   
-  /* Input field styling */
+  /* Form styling */
+  .form {
+    width: 100%;
+  }
+  
   .form-group {
     margin-bottom: 15px;
-    width: 100%;
   }
   
   .form-control {
@@ -54,11 +55,11 @@
     color: rgba(255, 255, 255, 0.7);
   }
   
-  /* Buttons container */
+  /* Button container */
   .button-container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    margin-top: 20px;
   }
   
   .btn {
@@ -71,21 +72,22 @@
   }
   
   .btn-submit {
-    background-color: #ff007f;
-    color: white;
-  }
-  
-  .btn-submit:hover {
-    background-color: #e60073;
-  }
-  
-  .btn-view {
     background-color: white;
     color: black;
   }
   
-  .btn-view:hover {
+  .btn-submit:hover {
     background-color: black;
     color: white;
+  }
+  
+  .btn-view {
+    background-color: black;
+    color: white;
+  }
+  
+  .btn-view:hover {
+    background-color: white;
+    color: black;
   }
   

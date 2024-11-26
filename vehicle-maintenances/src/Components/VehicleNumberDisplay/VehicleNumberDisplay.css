@@ -1,0 +1,75 @@
+/* General container styling */
+.container {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative; /* Ensures content is layered */
+    z-index: 2; /* Ensures content is above the background */
+  }
+  
+  /* Fullscreen background image */
+  body {
+    background-image: url("/src/Asserts/Login/img-01.png"); /* Replace with the correct image path */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Icon styling */
+  .icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+  
+  /* Title styling */
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* List group styling */
+  .list-group {
+    width: 50%; /* Center alignment */
+    margin: 0 auto;
+  }
+  
+  .list-group-item {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border: 1px solid white;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+    transition: background 0.3s ease;
+  }
+  
+  .list-group-item:hover {
+    background: rgba(255, 255, 255, 0.5); /* Slightly brighter on hover */
+    cursor: pointer;
+  }
+  
+  /* Back button styling */
+  .btn-back {
+    font-weight: bold;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-back:hover {
+    background-color: black;
+    color: white;
+  }
+  

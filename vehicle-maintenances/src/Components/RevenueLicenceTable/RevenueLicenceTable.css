@@ -3,7 +3,7 @@
     background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
     color: white;
     min-height: 400px;
-    width: 50%; /* Adjusted width */
+    width: 70%; /* Adjusted width */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -35,56 +35,63 @@
     margin-bottom: 20px;
   }
   
-  /* Input field styling */
-  .form-group {
-    margin-bottom: 15px;
+  /* Table container styling */
+  .table-container {
     width: 100%;
+    margin-bottom: 20px;
   }
   
-  .form-control {
+  .table {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid white;
-    background: rgba(255, 255, 255, 0.2);
+    border-collapse: collapse;
     color: white;
   }
   
-  .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  /* Buttons container */
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .btn {
-    width: 45%;
+  .table th,
+  .table td {
+    border: 1px solid white;
     padding: 10px;
-    font-weight: bold;
-    border-radius: 5px;
-    border: none;
-    transition: all 0.3s ease;
+    text-align: center;
   }
   
-  .btn-submit {
+  .table th {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .table tbody tr td {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Add Button Styling */
+  .btn-add {
+    position: absolute;
+    top: 10px;
+    right: 20px;
     background-color: #ff007f;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
-  .btn-submit:hover {
+  .btn-add:hover {
     background-color: #e60073;
   }
   
-  .btn-view {
+  /* Close Button Styling */
+  .btn-close {
     background-color: white;
     color: black;
+    border: none;
+    padding: 10px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
-  .btn-view:hover {
+  .btn-close:hover {
     background-color: black;
     color: white;
   }
