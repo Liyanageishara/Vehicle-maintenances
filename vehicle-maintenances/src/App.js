@@ -18,6 +18,10 @@ import FuelUsage from './Components/FuelUsage/FuelUsage';
 import FuelUsageTable from './Components/FuelUsageTable/FuelUsageTable';
 import VehicleRevenueLicence from './Components/VehicleRevenueLicence/VehicleRevenueLicence';
 import RevenueLicenceTable from './Components/RevenueLicenceTable/RevenueLicenceTable'
+import AddMonthlydistance from './Components/AddMonthlyDistance/AddMonthlydistance';
+
+
+
 function App() {
   return (
     <Router>
@@ -38,6 +42,7 @@ function App() {
           <Route path="/VehicleDetails" element={<VehicleDetails />} />
           <Route path="/AddVehicleDetail" element={<AddVehicleDetail />} />
           <Route path="/RevenueLicenceTable" element={<RevenueLicenceTable />} />
+          <Route path="/AddMonthlydistance" element={<AddMonthlydistance/>}/>
 
 
 

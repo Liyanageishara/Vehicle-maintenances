@@ -1,0 +1,93 @@
+/* Custom Card Styling */
+.custom-card {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #ffffff; /* Light background for the card */
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adding shadow for better visibility */
+}
+  
+.custom-title {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+}
+  
+.custom-label {
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 600;
+}
+  
+.custom-input {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+  
+.custom-input:read-only {
+    background-color: #f5f5f5; /* Light grey background for read-only field */
+    cursor: not-allowed;
+}
+  
+/* Button Custom Styles */
+.btn-custom-submit {
+    background-color: #ff0062;
+    color: white;
+    width: 300%;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: none;
+}
+  
+.btn-custom-submit:hover {
+    background-color: #531945;
+}
+  
+.btn-custom-back {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    width: 200%;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: none;
+    align-items: center;
+}
+  
+.btn-custom-back:hover {
+    background-color: #838080;
+}
+  
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+  
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+}
+  
+/* Responsive Design */
+@media (max-width: 768px) {
+    .custom-card {
+      padding: 20px;
+    }
+  
+    .custom-title {
+      font-size: 1.6rem;
+    }
+  
+    .btn-custom-submit, .btn-custom-back {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .d-flex {
+      flex-direction: column;
+    }
+}

@@ -75,7 +75,7 @@ const Login = () => {
           </div>
           <button type="submit" className="btn btn-primary w-100">
             LOGIN
-          </button>
+          </button>;/''
         </form>
         <div className="forgot-password">
           <Link to="/forget-password">Forgot password?</Link>
