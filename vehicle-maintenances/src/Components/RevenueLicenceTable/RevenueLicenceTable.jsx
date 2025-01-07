@@ -1,27 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./RevenueLicenceTable.css"; // Import custom CSS
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import Axios for API requests
 
 const RevenueLicenceTable = () => {
   const navigate = useNavigate();
 
-  // Example data for the table (replace with dynamic data from API or state)
-  const revenueLicenceData = [
-    {
-      vehicleNumber: "ABC - 0012",
-      date: "2024-11-25",
-      cost: "$50",
-      validate: "2025-11-25",
-      description: "Annual Licence Renewal",
-    },
-    {
-      vehicleNumber: "DEF - 1234",
-      date: "2024-10-15",
-      cost: "$60",
-      validate: "2025-10-15",
-      description: "Licence Update",
-    },
-  ];
+  // State to store fetched revenue licence data
+  const [revenueLicenceData, setRevenueLicenceData] = useState([]);
+
+  // Function to fetch revenue licence data from the backend
+  const fetchRevenueLicenceData = async () => {
+    try {
+      const response = await axios.get("http://localhost:8090/api/revenue_licence/all");
+      setRevenueLicenceData(response.data); // Set data to state
+    } catch (error) {
+      console.error("Error fetching revenue licence data:", error);
+    }
+  };
+
+  // Fetch data on component mount
+  useEffect(() => {
+    fetchRevenueLicenceData();
+  }, []);
 
   return (
     <div className="container">
@@ -54,7 +55,7 @@ const RevenueLicenceTable = () => {
             {revenueLicenceData.length > 0 ? (
               revenueLicenceData.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.vehicleNumber}</td>
+                  <td>{item.vehicleNo}</td>
                   <td>{item.date}</td>
                   <td>{item.cost}</td>
                   <td>{item.validate}</td>

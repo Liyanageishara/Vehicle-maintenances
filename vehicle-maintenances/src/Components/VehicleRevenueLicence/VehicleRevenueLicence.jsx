@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./VehicleRevenueLicence.css"; // Import custom CSS
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const VehicleRevenueLicence = () => {
   const navigate = useNavigate();
@@ -11,11 +12,14 @@ const VehicleRevenueLicence = () => {
 
   // State for form fields
   const [form, setForm] = useState({
+    vehicleNo: vehicleNumber || "",
     date: "",
     cost: "",
     validate: "",
     description: "",
   });
+
+  const [responseMessage, setResponseMessage] = useState("");
 
   // Handle form field changes
   const handleFormChange = (e) => {
@@ -23,11 +27,38 @@ const VehicleRevenueLicence = () => {
     setForm({ ...form, [name]: value });
   };
 
-  // Handle form submission
-  const handleSubmit = () => {
-    const data = { vehicleNumber, ...form };
-    console.log("Submitted Data:", data);
-    // Replace with an API call or further processing
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent form from reloading the page
+    try {
+      // Send POST request to backend API
+      const response = await axios.post(
+        "http://localhost:8090/api/revenue_licence/save",
+        [form], // Send form data as an array (as per your backend service)
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      // Handle successful response
+      if (response.data.status === "200") {
+        window.alert("Revenue licence saved successfully.");
+        // Reset the form fields
+        setForm({
+          vehicleNo: "",
+          date: "",
+          cost: "",
+          validate: "",
+          description: "",
+        });
+      } else {
+        setResponseMessage(response.data.message || "Error saving data.");
+      }
+    } catch (error) {
+      // Handle error
+      setResponseMessage("Error saving revenue licence: " + error.message);
+    }
   };
 
   return (
@@ -42,10 +73,10 @@ const VehicleRevenueLicence = () => {
         <input
           type="text"
           className="form-control"
-          name="vehicleNumber"
+          name="vehicleNo"
           placeholder="Vehicle No"
-          value={vehicleNumber} // Pre-filled from state
-          readOnly
+          value={form.vehicleNo} // Pre-filled from state
+          onChange={handleFormChange}
         />
       </div>
       <div className="form-group">
@@ -94,7 +125,7 @@ const VehicleRevenueLicence = () => {
         <button className="btn btn-submit" onClick={handleSubmit}>
           SUBMIT
         </button>
-        <button className="btn btn-view" onClick={() => navigate("/ViewRevenueLicence")}>
+        <button className="btn btn-view" onClick={() => navigate("/RevenueLicenceTable")}>
           VIEW
         </button>
       </div>
