@@ -33,6 +33,7 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+ 
   }
   
   /* Table container styling */
@@ -52,10 +53,11 @@
     border: 1px solid white;
     padding: 10px;
     text-align: center;
+    color: white;
   }
   
   .table th {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(205, 202, 209, 0.2);
   }
   
   .table tbody tr td {
@@ -64,6 +66,8 @@
   
   /* Add Button Styling */
   .btn-add {
+    width: 100px;
+    height: 50px;
     position: absolute;
     top: 10px;
     right: 20px;
