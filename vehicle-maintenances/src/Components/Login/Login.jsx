@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import './Login.css'; // Importing the CSS
 import { FaUserAlt, FaKey } from 'react-icons/fa'; // For icons
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'; // For making API calls
 
 const Login = () => {
+  const navigate = useNavigate(); // For redirecting on successful login
+
   const [formData, setFormData] = useState({
     username: '',
     password: '',
     type: '',
   });
+
+  const [errorMessage, setErrorMessage] = useState(''); // To handle error messages
 
   const handleChange = (e) => {
     setFormData({
@@ -17,10 +22,36 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Login data submitted:', formData);
-    // Add your login logic here
+    setErrorMessage('');
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/auth/login', {
+        username: formData.username,
+        password: formData.password,
+      });
+
+      // If login is successful, navigate based on user type
+      console.log('Login successful:', response.data);
+      if (formData.type === 'Admin') {
+        navigate('/dashboard'); // Redirect to Admin Dashboard
+      } else if (formData.type === 'User') {
+        navigate('/dashboard'); // Redirect to User Dashboard
+      }
+    } catch (error) {
+      console.error('Login error:', error.response || error.message);
+      // Handle different types of error responses
+      if (error.response) {
+        // Backend-specific error
+        const backendMessage =
+          error.response.data.message || 'Login failed. Please try again!';
+        setErrorMessage(backendMessage);
+      } else {
+        // General error
+        setErrorMessage('Something went wrong. Please try again!');
+      }
+    }
   };
 
   return (
@@ -75,8 +106,13 @@ const Login = () => {
           </div>
           <button type="submit" className="btn btn-primary w-100">
             LOGIN
-          </button>;/''
+          </button>
         </form>
+        {errorMessage && (
+          <div className="alert alert-danger mt-3" role="alert">
+            {errorMessage}
+          </div>
+        )}
         <div className="forgot-password">
           <Link to="/forget-password">Forgot password?</Link>
         </div>
