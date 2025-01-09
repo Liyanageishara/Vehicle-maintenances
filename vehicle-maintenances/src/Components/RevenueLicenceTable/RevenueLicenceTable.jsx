@@ -12,7 +12,7 @@ const RevenueLicenceTable = () => {
   // Function to fetch revenue licence data from the backend
   const fetchRevenueLicenceData = async () => {
     try {
-      const response = await axios.get("http://localhost:8090/api/revenue_licence/all");
+      const response = await axios.get("http://localhost:8080/api/revenue_licence/all");
       setRevenueLicenceData(response.data); // Set data to state
     } catch (error) {
       console.error("Error fetching revenue licence data:", error);
