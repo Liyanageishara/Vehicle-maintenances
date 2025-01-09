@@ -22,7 +22,7 @@ const AddVehicleForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/vehicle-info/saveVehicle", {
+      const response = await fetch("http://localhost:8090/vehicle-info/saveVehicle", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
