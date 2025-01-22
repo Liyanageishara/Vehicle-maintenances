@@ -7,7 +7,7 @@ import ForgetPassword from './Components/Forget_Password/ForgetPassword';
 import OTPComponent from './Components/OTP/OTP';
 import ChangePassword from './Components/ChangePassword/ChangePassword';
 import Dashboard from './Components/Dashboard_user/Dashboard';
-
+import Register from './Components/RegisterPage/Register';
 import VehicleNumberDisplay from './Components/VehicleNumberDisplay/VehicleNumberDisplay';
 import EmissionTestForm from './Components/EmissionTestForm/EmissionTestForm';
 import AddVehicleForm from './Components/AddVehicleForm/AddVehicleForm';
@@ -17,7 +17,7 @@ import AddVehicleDetail from './Components/AddVehicleDetail/AddVehicleDetail';
 import FuelUsage from './Components/FuelUsage/FuelUsage';
 import FuelUsageTable from './Components/FuelUsageTable/FuelUsageTable';
 import VehicleRevenueLicence from './Components/VehicleRevenueLicence/VehicleRevenueLicence';
-import RevenueLicenceTable from './Components/RevenueLicenceTable/RevenueLicenceTable'
+import RevenueLicenceTable from './Components/RevenueLicenceTable/RevenueLicenceTable';
 import AddMonthlydistance from './Components/AddMonthlyDistance/AddMonthlydistance';
 
 
@@ -28,6 +28,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/otp" element={<OTPComponent />} /> {/* OTP route */}
           <Route path="/change-password" element={<ChangePassword />} /> {/* Change Password route */}

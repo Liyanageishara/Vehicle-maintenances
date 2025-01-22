@@ -14,6 +14,26 @@ const VehicleDetails = () => {
     vehicleDetails: [],
   };
 
+  const handleAdd = () => {
+    navigate('/AddVehicleDetail'); 
+  };
+
+  const handleEmissionTest = () => {
+    navigate('/VehicleEmissionTable'); 
+  };
+
+  const handleRevenueLicence = () => {
+    navigate('/RevenueLicenceTable'); 
+  };
+
+  const handleFuelUsage = () => {
+    navigate('/FuelUsageTable'); 
+  };
+
+  const handleDistance = () => {
+    navigate('/AddMonthlydistance'); 
+  };
+
   return (
     <div className="container-fluid p-0">
       {/* Upper Panel */}
@@ -22,11 +42,11 @@ const VehicleDetails = () => {
           Back
         </button>
         <div className="d-flex gap-2">
-          <button className="btn btn-a">ADD</button>
-          <button className="btn btn-a">EMISSION TEST</button>
-          <button className="btn btn-a">REVENUE LICENCE</button>
-          <button className="btn btn-a">FUEL USAGE</button>
-          <button className="btn btn-a">MONTHLY DISTANCE</button>
+          <button className="btn btn-a"onClick={handleAdd}>ADD</button>
+          <button className="btn btn-a" onClick={handleEmissionTest}>EMISSION TEST</button>
+          <button className="btn btn-a"onClick={handleRevenueLicence}>REVENUE LICENCE</button>
+          <button className="btn btn-a"onClick={handleFuelUsage}>FUEL USAGE</button>
+          <button className="btn btn-a"onClick={handleDistance}>MONTHLY DISTANCE</button>
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./AddVehicleDetail.css"; // Custom CSS for styling
+import "./AddVehicleDetail.css";
+import "bootstrap/dist/css/bootstrap.min.css"; // Custom CSS for styling
 import { useNavigate, useLocation } from "react-router-dom";
 
 const AddVehicleDetail = () => {
@@ -38,11 +39,32 @@ const AddVehicleDetail = () => {
   };
 
   // Handle form submission
-  const handleSubmit = () => {
-    const data = { ...form, rows };
-    console.log("Submitted Data:", data);
-    // You can replace this with an API call
+  const handleSubmit = async () => {
+    const data = { ...form, rows }; // Prepare the data for submission
+  
+    try {
+      const response = await fetch("http://localhost:8090/api/add-vehicle/save", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Ensure JSON data
+        },
+        body: JSON.stringify(data), // Convert the data to JSON
+      });
+  
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Success:", result);
+        alert("Vehicle details saved successfully!");
+      } else {
+        console.error("Error:", response.statusText);
+        alert("Failed to save vehicle details.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while saving vehicle details.");
+    }
   };
+  
 
   return (
     <div className="container">
@@ -65,8 +87,8 @@ const AddVehicleDetail = () => {
           className="form-control"
           name="vehicleNumber"
           placeholder="Vehicle Number"
-          value={vehicleNumber} // Pre-filled from state
-          readOnly
+          value={form.vehicleNumber} // Pre-filled from state
+          onChange={handleFormChange}
         />
       </div>
       <div className="form-group">

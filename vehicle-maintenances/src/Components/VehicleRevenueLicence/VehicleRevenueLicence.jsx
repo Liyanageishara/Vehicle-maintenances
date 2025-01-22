@@ -32,7 +32,7 @@ const VehicleRevenueLicence = () => {
     try {
       // Send POST request to backend API
       const response = await axios.post(
-        "http://localhost:8090/api/revenue_licence/save",
+        "http://localhost:8080/api/revenue_licence/save",
         [form], // Send form data as an array (as per your backend service)
         {
           headers: {
