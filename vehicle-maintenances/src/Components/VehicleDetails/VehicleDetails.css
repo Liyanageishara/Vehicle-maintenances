@@ -1,110 +1,111 @@
 /* General container styling */
 .container {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
-    color: white;
-    min-height: 400px;
-    width: 70%; /* Adjusted width */
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 10px;
-    padding: 20px;
-    position: relative;
-    z-index: 2;
-  }
-  .btn-pannel{
-    width: 70%;
-    margin: auto;
-    margin-top: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border-radius: 10px;
-  }
-  
-  /* Back button styling */
-  .back-button {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  .back-b{
-    color: white;
-    margin-right: 10px;
-  }
-  .back-b:hover {
-    color: #292929;
-    background-color: rgb(255, 255, 255);
-  }
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+  color: white;
+  min-height: 400px;
+  width: 70%; /* Adjusted width */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
 
-  /* Header styling */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .icon {
-    font-size: 40px;
-  }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  /* Add button styling */
-  .btn-add {
-    background-color: #ff007f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .btn-a{
-    background-color: #ff007f;
-    color: white;
-    font-size: 10px;
-  }
-  
-  .btn-add:hover {
-    background-color: #e60073;
-  }
-  
-  /* Table container styling */
-  .table-container {
-    width: 100%;
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    color: white;
-  }
-  
-  .table th,
-  .table td {
-    border: 1px solid white;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .table th {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  .table tbody tr td {
-    background: rgba(255, 255, 255, 0.1);
-  }
-  
+.btn-pannel {
+  width: 70%;
+  margin: auto;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between; /* Align buttons properly */
+  align-items: center;
+  padding: 10px;
+}
+
+/* Back button styling */
+.back-b {
+  color: white;
+  margin-right: 10px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc); /* Gradient background */
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.back-b:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+  color: white;
+}
+
+/* Add Vehicle Details button styling */
+.btn-add-details {
+  background: linear-gradient(90deg, #ff7eb3, #ff758c, #ff9e6b); /* Gradient background */
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  margin-left: 10px; /* Add spacing between buttons */
+}
+
+.btn-add-details:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Table container styling */
+.table-container {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+.table th,
+.table td {
+  border: 1px solid white;
+  padding: 10px;
+  text-align: center;
+}
+
+.table th {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.table tbody tr td {
+  background: rgba(255, 255, 255, 0.1);
+}

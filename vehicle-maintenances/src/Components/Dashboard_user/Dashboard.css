@@ -14,33 +14,45 @@ body {
   margin: auto;
 }
 
+/* Styling for the vehicle type buttons */
 .icon-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: none;
-  background: transparent;
-  padding: 40px; 
-  transition: background-color 0.3s ease;
+  padding: 40px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+  color: #fff; /* White text */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Button shadow */
 }
 
 .icon-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  background: linear-gradient(135deg, #ff5e8a, #ff6f61); /* Hover gradient */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
-.icon-btn .icon:hover {
-  color: #03122e;
+.icon-btn .icon {
+  color: #ffffff;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
 }
 
-.icon {
-  color: #e4d4d4;
+.icon-btn:hover .icon {
+  color: #fffbe0; /* Lighter icon color on hover */
 }
 
-.text-center p {
+.icon-btn p {
   font-size: 1.2rem;
+  font-weight: bold;
   margin-top: 5px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* Text shadow for better readability */
 }
+
+/* Styling for the "Add Vehicle" button */
 .vehicle-add-button {
   width: 180px;
   height: 50px;
@@ -51,8 +63,32 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .vehicle-add-button:hover {
-  opacity:0.9;
+  background: linear-gradient(90deg, #ff8a80, #ffc371); /* Hover gradient */
+  opacity: 0.9;
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Container for other buttons */
+.button-container .btn-pink {
+  background: linear-gradient(90deg, #ff6f61, #ff5e8a);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-container .btn-pink:hover {
+  background: linear-gradient(90deg, #ff8a80, #ffc371); /* Hover gradient */
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }

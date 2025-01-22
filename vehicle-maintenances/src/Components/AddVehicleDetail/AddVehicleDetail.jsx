@@ -13,6 +13,7 @@ const AddVehicleDetail = () => {
   // State to handle form fields
   const [form, setForm] = useState({
     date: "",
+    vehicleNumber: vehicleNumber, // Pre-fill vehicle number
     place: "",
     currentDistance: "",
   });
@@ -41,7 +42,7 @@ const AddVehicleDetail = () => {
   // Handle form submission
   const handleSubmit = async () => {
     const data = { ...form, rows }; // Prepare the data for submission
-  
+
     try {
       const response = await fetch("http://localhost:8090/api/add-vehicle/save", {
         method: "POST",
@@ -50,11 +51,10 @@ const AddVehicleDetail = () => {
         },
         body: JSON.stringify(data), // Convert the data to JSON
       });
-  
+
       if (response.ok) {
-        const result = await response.json();
-        console.log("Success:", result);
         alert("Vehicle details saved successfully!");
+        navigate("/VehicleDetails", { state: { vehicleNumber: form.vehicleNumber } });
       } else {
         console.error("Error:", response.statusText);
         alert("Failed to save vehicle details.");
@@ -64,7 +64,6 @@ const AddVehicleDetail = () => {
       alert("An error occurred while saving vehicle details.");
     }
   };
-  
 
   return (
     <div className="container">

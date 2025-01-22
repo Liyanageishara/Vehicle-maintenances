@@ -1,59 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./VehicleDetails.css"; // Import custom CSS
 import { useLocation, useNavigate } from "react-router-dom";
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const VehicleDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { vehicleNumber } = location.state || { vehicleNumber: "Unknown" };
 
-  // Get vehicle data passed through the state from VehicleNumberDisplay
-  const { vehicleNumber, vehicleDetails = [] } = location.state || {
-    vehicleNumber: "Unknown",
-    vehicleDetails: [],
+  const [vehicleDetails, setVehicleDetails] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchVehicleDetails = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:8090/api/add-vehicle/details/${vehicleNumber}`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const formattedDetails = data.rows.map((row) => ({
+          date: data.date,
+          type: row.type,
+          description: row.description,
+          cost: row.cost,
+          place: data.place,
+          millage: data.currentDistance,
+        }));
+        setVehicleDetails(formattedDetails);
+      } else {
+        console.error("Failed to fetch vehicle details");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleAdd = () => {
-    navigate('/AddVehicleDetail'); 
+  useEffect(() => {
+    fetchVehicleDetails();
+  }, [vehicleNumber]); // Refresh data whenever vehicleNumber changes
+
+  const handleAddVehicleDetails = () => {
+    navigate("/AddVehicleDetail", { state: { vehicleNumber } }); // Pass vehicle number
   };
 
-  const handleEmissionTest = () => {
-    navigate('/VehicleEmissionTable'); 
-  };
-
-  const handleRevenueLicence = () => {
-    navigate('/RevenueLicenceTable'); 
-  };
-
-  const handleFuelUsage = () => {
-    navigate('/FuelUsageTable'); 
-  };
-
-  const handleDistance = () => {
-    navigate('/AddMonthlydistance'); 
-  };
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="container-fluid p-0">
       {/* Upper Panel */}
-      <div className=" text-light py-2 px-3 d-flex align-items-center justify-content-between btn-pannel">
+      <div className="text-light py-2 px-3 d-flex align-items-center justify-content-between btn-pannel">
         <button className="btn back-b" onClick={() => navigate(-1)}>
           Back
         </button>
-        <div className="d-flex gap-2">
-          <button className="btn btn-a"onClick={handleAdd}>ADD</button>
-          <button className="btn btn-a" onClick={handleEmissionTest}>EMISSION TEST</button>
-          <button className="btn btn-a"onClick={handleRevenueLicence}>REVENUE LICENCE</button>
-          <button className="btn btn-a"onClick={handleFuelUsage}>FUEL USAGE</button>
-          <button className="btn btn-a"onClick={handleDistance}>MONTHLY DISTANCE</button>
-        </div>
+        <button
+          className="btn-add-details"
+          onClick={handleAddVehicleDetails}
+        >
+          Add Vehicle Details
+        </button>
       </div>
 
       {/* Main Content */}
       <div className="container mt-3">
         <div className="header">
-          <div className="icon">🚴‍♂️</div>
+          <div className="icon">🚗</div>
           <h2 className="title">{vehicleNumber}</h2>
         </div>
 

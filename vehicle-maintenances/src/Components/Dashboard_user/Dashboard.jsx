@@ -1,95 +1,122 @@
-import React from 'react';
-import './Dashboard.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "./Dashboard.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleVehicleTypeClick = (vehicleType) => {
-    navigate('/VehicleNumberDisplay', { state: { vehicleType } });
+    navigate("/VehicleNumberDisplay", { state: { vehicleType } });
   };
+
   const handleAddVehicle = () => {
-    navigate('/addVehicleForm'); // Navigate to AddVehicleDetail page
+    navigate("/addVehicleForm");
+  };
+
+  const handleEmissionTest = () => {
+    navigate("/VehicleEmissionTable");
+  };
+
+  const handleRevenueLicence = () => {
+    navigate("/RevenueLicenceTable");
+  };
+
+  const handleFuelUsage = () => {
+    navigate("/FuelUsageTable");
+  };
+
+  const handleDistance = () => {
+    navigate("/AddMonthlydistance");
   };
 
   return (
     <div className="dashbord-container">
       <h2 className="text-center text-white">VEHICLE TYPES</h2>
-      <br></br>
+      <br />
 
       <div className="row text-center">
         <div className="col-4 mb-3">
           <button
-            className="btn btn-outline-light icon-btn"
-            onClick={() => handleVehicleTypeClick('bike')}
+            className="btn icon-btn"
+            onClick={() => handleVehicleTypeClick("bike")}
           >
             <i className="fas fa-motorcycle fa-3x icon"></i>
-            <p className="text-white mb-0">Bikes</p>
+            <p>Bikes</p>
           </button>
         </div>
         <div className="col-4 mb-3">
           <button
-            className="btn btn-outline-light icon-btn"
-            onClick={() => handleVehicleTypeClick('tuk_tuk')}
+            className="btn icon-btn"
+            onClick={() => handleVehicleTypeClick("tuk_tuk")}
           >
             <i className="fas fa-taxi fa-3x icon"></i>
-            <p className="text-white mb-0">Tuk Tuks</p>
+            <p>Tuk Tuks</p>
           </button>
         </div>
         <div className="col-4 mb-3">
           <button
-            className="btn btn-outline-light icon-btn"
-            onClick={() => handleVehicleTypeClick('car')}
+            className="btn icon-btn"
+            onClick={() => handleVehicleTypeClick("car")}
           >
             <i className="fas fa-car fa-3x icon"></i>
-            <p className="text-white mb-0">Cars</p>
+            <p>Cars</p>
           </button>
         </div>
         <div className="col-4 mb-3">
           <button
-            className="btn btn-outline-light icon-btn"
-            onClick={() => handleVehicleTypeClick('van')}
+            className="btn icon-btn"
+            onClick={() => handleVehicleTypeClick("van")}
           >
             <i className="fas fa-shuttle-van fa-3x icon"></i>
-            <p className="text-white mb-0">Vans</p>
+            <p>Vans</p>
           </button>
         </div>
         <div className="col-4 mb-3">
           <button
-            className="btn btn-outline-light icon-btn"
-            onClick={() => handleVehicleTypeClick('cab')}
+            className="btn icon-btn"
+            onClick={() => handleVehicleTypeClick("cab")}
           >
             <i className="fas fa-taxi fa-3x icon"></i>
-            <p className="text-white mb-0">Cabs</p>
+            <p>Cabs</p>
           </button>
         </div>
         <div className="col-4 mb-3">
           <button
-            className="btn btn-outline-light icon-btn"
-            onClick={() => handleVehicleTypeClick('lorry')}
+            className="btn icon-btn"
+            onClick={() => handleVehicleTypeClick("lorry")}
           >
             <i className="fas fa-truck fa-3x icon"></i>
-            <p className="text-white mb-0">Lorries</p>
+            <p>Lorries</p>
           </button>
         </div>
         <div className="col-4 offset-4 mb-3">
           <button
-            className="btn btn-outline-light icon-btn"
-            onClick={() => handleVehicleTypeClick('other')}
+            className="btn icon-btn"
+            onClick={() => handleVehicleTypeClick("other")}
           >
             <i className="fas fa-car-side fa-3x icon"></i>
-            <p className="text-white mb-0">Others</p>
+            <p>Others</p>
           </button>
         </div>
-        <div>
-        <button
-          className="vehicle-add-button"
-          onClick={handleAddVehicle} // Handle navigation on click
-        >
-          Add Vehicle
-        </button>
       </div>
+
+      <div className="button-container text-center mt-4">
+        <button className="btn btn-pink mx-2" onClick={handleAddVehicle}>
+          ADD
+        </button>
+        <button className="btn btn-pink mx-2" onClick={handleEmissionTest}>
+          EMISSION TEST
+        </button>
+        <button className="btn btn-pink mx-2" onClick={handleRevenueLicence}>
+          REVENUE LICENCE
+        </button>
+        <button className="btn btn-pink mx-2" onClick={handleFuelUsage}>
+          FUEL USAGE
+        </button>
+        <button className="btn btn-pink mx-2" onClick={handleDistance}>
+          MONTHLY DISTANCE
+        </button>
       </div>
     </div>
   );
