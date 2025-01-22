@@ -10,35 +10,36 @@ const VehicleDetails = () => {
   const [vehicleDetails, setVehicleDetails] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchVehicleDetails = async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:8090/api/add-vehicle/details/${vehicleNumber}`
-      );
-      if (response.ok) {
-        const data = await response.json();
-        const formattedDetails = data.rows.map((row) => ({
-          date: data.date,
-          type: row.type,
-          description: row.description,
-          cost: row.cost,
-          place: data.place,
-          millage: data.currentDistance,
-        }));
-        setVehicleDetails(formattedDetails);
-      } else {
-        console.error("Failed to fetch vehicle details");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchVehicleDetails = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:8090/api/add-vehicle/details/${vehicleNumber}`
+        );
+        if (response.ok) {
+          const data = await response.json();
+          // Format the data for display
+          const formattedDetails = data.map((item) => ({
+            date: item.date,
+            type: item.rows.map((row) => row.type).join(", "), // Combine types
+            description: item.rows.map((row) => row.description).join(", "), // Combine descriptions
+            cost: item.rows.map((row) => row.cost).join(", "), // Combine costs
+            place: item.place,
+            millage: item.currentDistance,
+          }));
+          setVehicleDetails(formattedDetails);
+        } else {
+          console.error("Failed to fetch vehicle details");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchVehicleDetails();
-  }, [vehicleNumber]); // Refresh data whenever vehicleNumber changes
+  }, [vehicleNumber]);
 
   const handleAddVehicleDetails = () => {
     navigate("/AddVehicleDetail", { state: { vehicleNumber } }); // Pass vehicle number
