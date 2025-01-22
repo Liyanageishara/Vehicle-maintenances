@@ -22,6 +22,7 @@ const Login = () => {
     console.log('Login data submitted:', formData);
     // Add your login logic here
   };
+  
 
   return (
     <div className="login-container">

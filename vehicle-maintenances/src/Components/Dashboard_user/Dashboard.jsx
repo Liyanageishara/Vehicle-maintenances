@@ -1,8 +1,17 @@
 import React from 'react';
 import './Dashboard.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+
+  const Dashboard = () => {
+    const navigate = useNavigate();
+
+  const handleAddVehicle = () => {
+    navigate('/addVehicleForm'); // Navigate to AddVehicleDetail page
+  };
+
     return (
       <div className="dashbord-container">
         <h2 className="text-center text-white">VEHICLE TYPES</h2>
@@ -54,10 +63,11 @@ const Dashboard = () => {
           </div>
         </div>
         <div>
-        <button className="vehicle-add-button">Add Vehicle</button>
+        <button className="vehicle-add-button" onClick={handleAddVehicle}>Add Vehicle</button>
         </div>
       </div>
     );
+};
 };
 
 export default Dashboard;

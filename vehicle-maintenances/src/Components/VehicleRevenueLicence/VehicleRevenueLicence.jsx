@@ -124,6 +124,7 @@ const VehicleRevenueLicence = () => {
       <div className="button-container">
         <button className="btn btn-submit" onClick={handleSubmit}>
           SUBMIT
+
         </button>
         <button className="btn btn-view" onClick={() => navigate("/RevenueLicenceTable")}>
           VIEW
