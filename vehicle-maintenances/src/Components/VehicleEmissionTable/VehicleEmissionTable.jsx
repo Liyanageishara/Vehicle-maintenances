@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./VehicleEmissionTable.css"; // Import custom CSS
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const VehicleEmissionTable = () => {
   const navigate = useNavigate();
+
+  const [vehicleEmissionData, setVehicleEmissionData] = useState([]);
+
+  // Fetch vehicle emission data from the backend
+  const fetchVehicleEmissionData = async () => {
+    try {
+      const response = await axios.get("http://localhost:8090/api/emission/all");
+      setVehicleEmissionData(response.data); // Set fetched data to state
+    } catch (error) {
+      console.error("Error fetching vehicle emission data:", error);
+    }
+  };
+
+  // Fetch data on component mount
+  useEffect(() => {
+    fetchVehicleEmissionData();
+  }, []);
+
+  const handleAdd = () => {
+    navigate("/EmissionTestForm"); // Adjust navigation route as needed
+  };
 
   return (
     <div className="container">
@@ -13,7 +35,9 @@ const VehicleEmissionTable = () => {
       <h2 className="title">VEHICLE EMISSION TEST CERTIFICATE</h2>
 
       {/* Add Button */}
-      <button className="btn btn-add">ADD</button>
+      <button className="btn btn-add" onClick={handleAdd}>
+        ADD
+      </button>
 
       {/* Table */}
       <div className="table-container">
@@ -23,23 +47,38 @@ const VehicleEmissionTable = () => {
               <th>Vehicle No</th>
               <th>Certificate No</th>
               <th>Date</th>
-              <th>Pass/Fail</th>
+              <th>Status</th>
               <th>Test Fee</th>
-              <th>Valid Til</th>
+              <th>Valid Till</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody>
-            {/* Example empty rows */}
-            <tr>
-              <td colSpan="7">No data available</td>
-            </tr>
+            {vehicleEmissionData.length > 0 ? (
+              vehicleEmissionData.map((emission, index) => (
+                <tr key={index}>
+                  <td>{emission.vehicleNo}</td>
+                  <td>{emission.certificateNo}</td>
+                  <td>{new Date(emission.addDate).toLocaleDateString()}</td>
+                  <td>{emission.status}</td>
+                  <td>{emission.testFee}</td>
+                  <td>{new Date(emission.validTill).toLocaleDateString()}</td>
+                  <td>{emission.description}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="7">No data available</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
 
       {/* Close Button */}
-      <button className="btn btn-close">CLOSE</button>
+      <button className="btn btn-close" onClick={() => navigate(-1)}>
+        CLOSE
+      </button>
     </div>
   );
 };
