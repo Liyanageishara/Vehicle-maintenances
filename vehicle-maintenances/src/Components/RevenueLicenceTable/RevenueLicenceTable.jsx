@@ -19,6 +19,21 @@ const RevenueLicenceTable = () => {
     }
   };
 
+  // Function to handle delete operation
+  const handleDelete = async (revenueId) => {
+    if (window.confirm("Are you sure you want to delete this record?")) {
+      try {
+        await axios.delete(`http://localhost:8090/api/revenue_licence/delete/${revenueId}`);
+        alert("Record deleted successfully!");
+        // Refetch data after deletion
+        fetchRevenueLicenceData();
+      } catch (error) {
+        console.error("Error deleting record:", error);
+        alert("Failed to delete record.");
+      }
+    }
+  };
+
   // Fetch data on component mount
   useEffect(() => {
     fetchRevenueLicenceData();
@@ -49,32 +64,38 @@ const RevenueLicenceTable = () => {
               <th>Cost</th>
               <th>Validate</th>
               <th>Description</th>
+              <th>Actions</th> {/* Add Actions column */}
             </tr>
           </thead>
           <tbody>
             {revenueLicenceData.length > 0 ? (
-              revenueLicenceData.map((item, index) => (
-                <tr key={index}>
+              revenueLicenceData.map((item) => (
+                <tr key={item.revenueId}>
                   <td>{item.vehicleNo}</td>
                   <td>{item.date}</td>
                   <td>{item.cost}</td>
                   <td>{item.validate}</td>
                   <td>{item.description}</td>
+                  <td>
+                    <button
+                      className="btn btn-delete"
+                      onClick={() => handleDelete(item.revenueId)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="5">No data available</td>
+                <td colSpan="6">No data available</td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
 
-      {/* Close Button */}
-      <button className="btn btn-close" onClick={() => navigate(-1)}>
-        CLOSE
-      </button>
+     
     </div>
   );
 };

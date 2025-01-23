@@ -50,7 +50,7 @@ const AddVehicleForm = () => {
   };
 
   const handleView = () => {
-    navigate("/view-vehicles"); // Adjust this route based on your frontend setup
+    navigate("/dashboard"); // Adjust this route based on your frontend setup
   };
 
   return (

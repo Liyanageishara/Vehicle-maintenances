@@ -5,7 +5,6 @@ import axios from "axios";
 
 const VehicleEmissionTable = () => {
   const navigate = useNavigate();
-
   const [vehicleEmissionData, setVehicleEmissionData] = useState([]);
 
   // Fetch vehicle emission data from the backend
@@ -15,6 +14,20 @@ const VehicleEmissionTable = () => {
       setVehicleEmissionData(response.data); // Set fetched data to state
     } catch (error) {
       console.error("Error fetching vehicle emission data:", error);
+    }
+  };
+
+  // Delete a record by ID
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.delete(`http://localhost:8090/api/emission/delete/${id}`);
+      if (response.status === 200) {
+        alert("Record deleted successfully!");
+        fetchVehicleEmissionData(); // Refresh data after deletion
+      }
+    } catch (error) {
+      console.error("Error deleting record:", error);
+      alert("Failed to delete the record.");
     }
   };
 
@@ -51,6 +64,7 @@ const VehicleEmissionTable = () => {
               <th>Test Fee</th>
               <th>Valid Till</th>
               <th>Description</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -64,11 +78,19 @@ const VehicleEmissionTable = () => {
                   <td>{emission.testFee}</td>
                   <td>{new Date(emission.validTill).toLocaleDateString()}</td>
                   <td>{emission.description}</td>
+                  <td>
+                    <button
+                      className="btn btn-delete"
+                      onClick={() => handleDelete(emission.emissionRowId)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="7">No data available</td>
+                <td colSpan="8">No data available</td>
               </tr>
             )}
           </tbody>

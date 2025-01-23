@@ -26,6 +26,21 @@ const FuelUsageTable = () => {
     fetchFuelUsageData();
   }, []);
 
+  // Handle delete functionality
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.delete(`http://localhost:8090/api/fuel-usage/delete/${id}`);
+      if (response.status === 200) {
+        alert("Record deleted successfully!");
+        // Refresh data after deletion
+        setFuelUsageData(fuelUsageData.filter((item) => item.id !== id));
+      }
+    } catch (error) {
+      console.error("Error deleting record:", error);
+      alert("Failed to delete the record.");
+    }
+  };
+
   return (
     <div className="container">
       <button className="back-button" onClick={() => navigate(-1)}>
@@ -34,10 +49,7 @@ const FuelUsageTable = () => {
       <h2 className="title">Fuel Usage</h2>
 
       {/* Add Button */}
-      <button
-        className="btn btn-add"
-        onClick={() => navigate("/FuelUsage")}
-      >
+      <button className="btn btn-add" onClick={() => navigate("/FuelUsage")}>
         ADD
       </button>
 
@@ -56,6 +68,7 @@ const FuelUsageTable = () => {
                 <th>Costs</th>
                 <th>Fuel Liters</th>
                 <th>Description</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -66,6 +79,14 @@ const FuelUsageTable = () => {
                   <td>{item.cost}</td>
                   <td>{item.fuelLiters}</td>
                   <td>{item.description}</td>
+                  <td>
+                    <button
+                      className="btn btn-delete"
+                      onClick={() => handleDelete(item.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -75,10 +96,7 @@ const FuelUsageTable = () => {
         )}
       </div>
 
-      {/* Close Button */}
-      <button className="btn btn-close" onClick={() => navigate(-1)}>
-        CLOSE
-      </button>
+    
     </div>
   );
 };
