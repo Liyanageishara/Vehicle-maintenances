@@ -18,16 +18,7 @@ const VehicleDetails = () => {
         );
         if (response.ok) {
           const data = await response.json();
-          // Format the data for display
-          const formattedDetails = data.map((item) => ({
-            date: item.date,
-            type: item.rows.map((row) => row.type).join(", "), // Combine types
-            description: item.rows.map((row) => row.description).join(", "), // Combine descriptions
-            cost: item.rows.map((row) => row.cost).join(", "), // Combine costs
-            place: item.place,
-            millage: item.currentDistance,
-          }));
-          setVehicleDetails(formattedDetails);
+          setVehicleDetails(data); // Set the array of rows directly
         } else {
           console.error("Failed to fetch vehicle details");
         }
@@ -42,7 +33,7 @@ const VehicleDetails = () => {
   }, [vehicleNumber]);
 
   const handleAddVehicleDetails = () => {
-    navigate("/AddVehicleDetail", { state: { vehicleNumber } }); // Pass vehicle number
+    navigate("/AddVehicleDetail", { state: { vehicleNumber } }); // Pass vehicle number to the AddVehicleDetail page
   };
 
   if (loading) {
