@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import "./FuelUsage.css"; // Custom CSS for styling
-import { useNavigate, useLocation } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const FuelUsage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-
-  // Get vehicle number passed through state (if available)
-  const { vehicleNumber } = location.state || { vehicleNumber: "" };
 
   // State for form fields
-  const [form, setForm] = useState({
+  const [formData, setForm] = useState({
     date: "",
+    vehicleNumber: "",
     cost: "",
     fuelLiters: "",
     description: "",
@@ -20,14 +19,34 @@ const FuelUsage = () => {
   // Handle form field changes
   const handleFormChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm({ ...formData, [name]: value });
   };
 
   // Handle form submission
-  const handleSubmit = () => {
-    const data = { ...form, vehicleNumber };
-    console.log("Submitted Data:", data);
-    // Replace with an API call or further processing
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:8090/api/fuel-usage/save", formData);
+      if (response.status === 200) {
+        alert("Fuel usage data added successfully!");
+        setForm({
+          date: "",
+          vehicleNumber: "",
+          cost: "",
+          fuelLiters: "",
+          description: "",
+        });
+        navigate("/FuelUsageTable");
+      }
+    } catch (error) {
+      console.error("Error saving fuel usage data:", error);
+      alert("Failed to save fuel usage data. Please try again.");
+    }
+  };
+
+  const handleView = () => {
+    navigate("/FuelUsageTable");
   };
 
   return (
@@ -44,7 +63,7 @@ const FuelUsage = () => {
           className="form-control"
           name="date"
           placeholder="Date"
-          value={form.date}
+          value={formData.date}
           onChange={handleFormChange}
         />
       </div>
@@ -54,8 +73,8 @@ const FuelUsage = () => {
           className="form-control"
           name="vehicleNumber"
           placeholder="Vehicle Number"
-          value={vehicleNumber} // Pre-filled from state
-          readOnly
+          value={formData.vehicleNumber}
+          onChange={handleFormChange}
         />
       </div>
       <div className="form-group">
@@ -64,7 +83,7 @@ const FuelUsage = () => {
           className="form-control"
           name="cost"
           placeholder="Cost"
-          value={form.cost}
+          value={formData.cost}
           onChange={handleFormChange}
         />
       </div>
@@ -74,7 +93,7 @@ const FuelUsage = () => {
           className="form-control"
           name="fuelLiters"
           placeholder="Fuel Liters"
-          value={form.fuelLiters}
+          value={formData.fuelLiters}
           onChange={handleFormChange}
         />
       </div>
@@ -84,7 +103,7 @@ const FuelUsage = () => {
           className="form-control"
           name="description"
           placeholder="Description"
-          value={form.description}
+          value={formData.description}
           onChange={handleFormChange}
         />
       </div>
@@ -94,7 +113,7 @@ const FuelUsage = () => {
         <button className="btn btn-submit" onClick={handleSubmit}>
           SUBMIT
         </button>
-        <button className="btn btn-view" onClick={() => navigate("/viewFuelUsage")}>
+        <button className="btn btn-view" onClick={handleView}>
           VIEW
         </button>
       </div>

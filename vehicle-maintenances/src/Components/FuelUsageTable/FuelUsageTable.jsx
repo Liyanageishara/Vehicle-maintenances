@@ -1,27 +1,30 @@
-import React from "react";
-import "./FuelUsageTable.css"; // Import custom CSS
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./FuelUsageTable.css";
 import { useNavigate } from "react-router-dom";
 
 const FuelUsageTable = () => {
+  const [fuelUsageData, setFuelUsageData] = useState([]); // State to store fetched data
+  const [loading, setLoading] = useState(true); // State to handle loading
+  const [error, setError] = useState(null); // State to handle errors
   const navigate = useNavigate();
 
-  // Example data for the table (replace with dynamic data from API or state)
-  const fuelUsageData = [
-    {
-      date: "2024-11-25",
-      vehicleNumber: "ABC - 0012",
-      cost: "$50",
-      fuelLiters: "20",
-      description: "Refueling at Station A",
-    },
-    {
-      date: "2024-11-20",
-      vehicleNumber: "DEF - 1234",
-      cost: "$60",
-      fuelLiters: "25",
-      description: "Refueling at Station B",
-    },
-  ];
+  // Fetch data from the backend
+  useEffect(() => {
+    const fetchFuelUsageData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8090/api/fuel-usage/all"); // Replace with your backend URL
+        setFuelUsageData(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching fuel usage data:", err);
+        setError("Failed to load data. Please try again later.");
+        setLoading(false);
+      }
+    };
+
+    fetchFuelUsageData();
+  }, []);
 
   return (
     <div className="container">
@@ -33,26 +36,30 @@ const FuelUsageTable = () => {
       {/* Add Button */}
       <button
         className="btn btn-add"
-        onClick={() => navigate("/FuelUsage", { state: { vehicleNumber: "ABC - 0012" } })}
+        onClick={() => navigate("/FuelUsage")}
       >
         ADD
       </button>
 
       {/* Table */}
       <div className="table-container">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Vehicle Number</th>
-              <th>Costs</th>
-              <th>Fuel Liters</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            {fuelUsageData.length > 0 ? (
-              fuelUsageData.map((item, index) => (
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p className="error-message">{error}</p>
+        ) : fuelUsageData.length > 0 ? (
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Vehicle Number</th>
+                <th>Costs</th>
+                <th>Fuel Liters</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {fuelUsageData.map((item, index) => (
                 <tr key={index}>
                   <td>{item.date}</td>
                   <td>{item.vehicleNumber}</td>
@@ -60,14 +67,12 @@ const FuelUsageTable = () => {
                   <td>{item.fuelLiters}</td>
                   <td>{item.description}</td>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="5">No data available</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p>No data available</p>
+        )}
       </div>
 
       {/* Close Button */}

@@ -31,92 +31,63 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashbord-container">
-      <h2 className="text-center text-white">VEHICLE TYPES</h2>
-      <br />
-
-      <div className="row text-center">
-        <div className="col-4 mb-3">
-          <button
-            className="btn icon-btn"
-            onClick={() => handleVehicleTypeClick("bike")}
-          >
-            <i className="fas fa-motorcycle fa-3x icon"></i>
-            <p>Bikes</p>
-          </button>
-        </div>
-        <div className="col-4 mb-3">
-          <button
-            className="btn icon-btn"
-            onClick={() => handleVehicleTypeClick("tuk_tuk")}
-          >
-            <i className="fas fa-taxi fa-3x icon"></i>
-            <p>Tuk Tuks</p>
-          </button>
-        </div>
-        <div className="col-4 mb-3">
-          <button
-            className="btn icon-btn"
-            onClick={() => handleVehicleTypeClick("car")}
-          >
-            <i className="fas fa-car fa-3x icon"></i>
-            <p>Cars</p>
-          </button>
-        </div>
-        <div className="col-4 mb-3">
-          <button
-            className="btn icon-btn"
-            onClick={() => handleVehicleTypeClick("van")}
-          >
-            <i className="fas fa-shuttle-van fa-3x icon"></i>
-            <p>Vans</p>
-          </button>
-        </div>
-        <div className="col-4 mb-3">
-          <button
-            className="btn icon-btn"
-            onClick={() => handleVehicleTypeClick("cab")}
-          >
-            <i className="fas fa-taxi fa-3x icon"></i>
-            <p>Cabs</p>
-          </button>
-        </div>
-        <div className="col-4 mb-3">
-          <button
-            className="btn icon-btn"
-            onClick={() => handleVehicleTypeClick("lorry")}
-          >
-            <i className="fas fa-truck fa-3x icon"></i>
-            <p>Lorries</p>
-          </button>
-        </div>
-        <div className="col-4 offset-4 mb-3">
-          <button
-            className="btn icon-btn"
-            onClick={() => handleVehicleTypeClick("other")}
-          >
-            <i className="fas fa-car-side fa-3x icon"></i>
-            <p>Others</p>
-          </button>
-        </div>
+    <div className="dashboard-container container text-center mt-5">
+      <h2 className="dashboard-title mb-4">VEHICLE TYPES</h2>
+      <div className="row g-3 justify-content-center">
+        {[
+          { type: "bike", icon: "fas fa-motorcycle", label: "Bikes" },
+          { type: "tuk_tuk", icon: "fas fa-taxi", label: "Tuk Tuks" },
+          { type: "car", icon: "fas fa-car", label: "Cars" },
+          { type: "van", icon: "fas fa-shuttle-van", label: "Vans" },
+          { type: "cab", icon: "fas fa-taxi", label: "Cabs" },
+          { type: "lorry", icon: "fas fa-truck", label: "Lorries" },
+          { type: "other", icon: "fas fa-car-side", label: "Others" },
+        ].map(({ type, icon, label }) => (
+          <div className="col-6 col-md-4 col-lg-3" key={type}>
+            <button
+              className="btn vehicle-button w-100 p-3"
+              onClick={() => handleVehicleTypeClick(type)}
+            >
+              <i className={`${icon} vehicle-icon mb-2`}></i>
+              <p>{label}</p>
+            </button>
+          </div>
+        ))}
       </div>
 
-      <div className="button-container text-center mt-4">
-        <button className="btn btn-pink mx-2" onClick={handleAddVehicle}>
-          ADD
-        </button>
-        <button className="btn btn-pink mx-2" onClick={handleEmissionTest}>
-          EMISSION TEST
-        </button>
-        <button className="btn btn-pink mx-2" onClick={handleRevenueLicence}>
-          REVENUE LICENCE
-        </button>
-        <button className="btn btn-pink mx-2" onClick={handleFuelUsage}>
-          FUEL USAGE
-        </button>
-        <button className="btn btn-pink mx-2" onClick={handleDistance}>
-          MONTHLY DISTANCE
-        </button>
+      <div className="action-buttons-container row mt-5">
+        <div className="col-12">
+          <button
+            className="btn action-button btn-primary"
+            onClick={handleAddVehicle}
+          >
+            ADD VEHICLE
+          </button>
+          <button
+            className="btn action-button btn-success"
+            onClick={handleEmissionTest}
+          >
+            EMISSION TEST
+          </button>
+          <button
+            className="btn action-button btn-warning"
+            onClick={handleRevenueLicence}
+          >
+            REVENUE LICENCE
+          </button>
+          <button
+            className="btn action-button btn-danger"
+            onClick={handleFuelUsage}
+          >
+            FUEL USAGE
+          </button>
+          <button
+            className="btn action-button btn-info"
+            onClick={handleDistance}
+          >
+            MONTHLY DISTANCE
+          </button>
+        </div>
       </div>
     </div>
   );
