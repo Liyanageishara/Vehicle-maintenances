@@ -27,11 +27,22 @@ const Dashboard = () => {
   };
 
   const handleDistance = () => {
-    navigate("/AddMonthlydistance");
+    navigate("/monthly-distance");
   };
 
   const handleCompanyRoutingMap = () => {
     navigate("/ManagecitiesPage");
+  };
+
+  const handleDailyDistence = () => {
+    navigate("/daily-distance");
+  };
+  const RegisterMap = () => {
+    navigate("/register");
+  };
+
+  const handleDailyRoutingDetils = () => {
+    navigate("/view-routing-details");
   };
 
   return (
@@ -92,10 +103,34 @@ const Dashboard = () => {
             MONTHLY DISTANCE
           </button>
           <button
-            className="btn action-button btn-secondary"
+            className="btn action-button btn-primary"
             onClick={handleCompanyRoutingMap}
           >
             COMPANY ROUTING MAP
+          </button>
+          <button
+            className="btn action-button btn-success"
+            onClick={handleDailyDistence}
+          >
+            DAILY ROUTING
+          </button>
+          <button
+  className="btn action-button btn-info"
+  onClick={() => window.open("https://drive.google.com/drive/folders/1o3ILrxhz4MoW7x3g5OG8c5TwrAQ2sFvc?usp=drive_link", "_blank")}
+>
+  Vehicle Images
+</button>
+<button
+            className="btn action-button btn-info"
+            onClick={RegisterMap}
+          >
+            Register User
+          </button>
+          <button
+            className="btn action-button btn-danger"
+            onClick={handleDailyRoutingDetils}
+          >
+            SEARCH ROUTING DETAILS
           </button>
         </div>
       </div>

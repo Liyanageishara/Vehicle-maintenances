@@ -7,6 +7,7 @@ const DailyDistancePage = () => {
     date: "",
     vehicleNumber: "",
     distance: "",
+    description: "", // New description field
   });
 
   const handleInputChange = (e) => {
@@ -21,10 +22,11 @@ const DailyDistancePage = () => {
         date: formData.date,
         vehicleNumber: formData.vehicleNumber,
         distance: parseInt(formData.distance),
+        description: formData.description, // Send description to backend
       });
 
       alert("Daily Distance Saved Successfully!");
-      setFormData({ date: "", vehicleNumber: "", distance: "" });
+      setFormData({ date: "", vehicleNumber: "", distance: "", description: "" });
     } catch (error) {
       console.error("Error saving daily distance:", error);
       alert("Failed to save daily distance.");
@@ -61,6 +63,15 @@ const DailyDistancePage = () => {
           value={formData.distance}
           onChange={handleInputChange}
           placeholder="Enter distance"
+          required
+        />
+
+        <label>Description:</label> {/* New description field */}
+        <input
+          name="description"
+          value={formData.description}
+          onChange={handleInputChange}
+          placeholder="Enter description for the route"
           required
         />
 

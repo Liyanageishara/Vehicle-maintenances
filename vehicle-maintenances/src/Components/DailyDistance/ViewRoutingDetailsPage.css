@@ -1,0 +1,74 @@
+.view-routing-container {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    min-height: 400px;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .view-routing-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .view-routing-form {
+    margin-bottom: 20px;
+  }
+  
+  .view-routing-form input {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .routing-details-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .routing-details-table table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+  }
+  
+  .routing-details-table th,
+  .routing-details-table td {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .routing-details-table th {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  

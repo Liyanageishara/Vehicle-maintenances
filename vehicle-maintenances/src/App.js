@@ -22,6 +22,7 @@ import AddMonthlydistance from './Components/AddMonthlyDistance/AddMonthlydistan
 import ManageCities from './Components/SimpleMap/ManageCitiesPage';
 import DailyDistancePage from "./Components/DailyDistance/DailyDistancePage";
 import MonthlyDistancePage from './Components/DailyDistance/MonthlyDistancePage';
+import ViewRoutingDetailsPage from './Components/DailyDistance/ViewRoutingDetailsPage';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           <Route path="/ManagecitiesPage" element={<ManageCities/>}/>
           <Route path="/daily-distance" element={<DailyDistancePage />} />
           <Route path="/monthly-distance" element={<MonthlyDistancePage />} />
+          <Route path="/view-routing-details" element={<ViewRoutingDetailsPage />} />
           
 
 
