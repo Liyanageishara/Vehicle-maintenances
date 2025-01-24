@@ -8,15 +8,16 @@
   background-size: cover;
   padding: 40px;
   border-radius: 10px;
-  color: white;
+  color: rgb(46, 26, 231);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .dashboard-title {
   font-size: 2rem;
+font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #fff;
+  color: #000000;
 }
 
 /* Vehicle button styling */

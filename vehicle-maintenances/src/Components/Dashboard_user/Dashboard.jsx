@@ -47,7 +47,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container container text-center mt-5">
-      <h2 className="dashboard-title mb-4">VEHICLE TYPES</h2>
+      <h2 className="dashboard-title mb-4">RANGIRI VEHICLE MANAGEMENT SYSTEM</h2>
       <div className="row g-3 justify-content-center">
         {[
           { type: "bike", icon: "fas fa-motorcycle", label: "Bikes" },
