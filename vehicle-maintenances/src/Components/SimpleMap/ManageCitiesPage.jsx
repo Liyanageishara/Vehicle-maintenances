@@ -68,7 +68,7 @@ const ManageCities = () => {
             setNewCity({ ...newCity, distance: parseInt(e.target.value) })
           }
         />
-        <button onClick={handleAddCity}>Add City</button>
+        <button onClick={handleAddCity}>Add Routing</button>
       </div>
       <table className="manage-cities-table">
         <thead>

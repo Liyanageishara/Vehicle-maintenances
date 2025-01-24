@@ -42,9 +42,10 @@ const VehicleEmissionTable = () => {
 
   return (
     <div className="container">
-      <button className="back-button" onClick={() => navigate(-1)}>
-        Back
-      </button>
+   <button className="back-button-custom btn-back" onClick={() => navigate(-1)}>
+    Back
+</button>
+
       <h2 className="title">VEHICLE EMISSION TEST CERTIFICATE</h2>
 
       {/* Add Button */}

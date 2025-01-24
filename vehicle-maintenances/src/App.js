@@ -20,6 +20,8 @@ import VehicleRevenueLicence from './Components/VehicleRevenueLicence/VehicleRev
 import RevenueLicenceTable from './Components/RevenueLicenceTable/RevenueLicenceTable';
 import AddMonthlydistance from './Components/AddMonthlyDistance/AddMonthlydistance';
 import ManageCities from './Components/SimpleMap/ManageCitiesPage';
+import DailyDistancePage from "./Components/DailyDistance/DailyDistancePage";
+import MonthlyDistancePage from './Components/DailyDistance/MonthlyDistancePage';
 
 
 function App() {
@@ -45,6 +47,8 @@ function App() {
           <Route path="/RevenueLicenceTable" element={<RevenueLicenceTable />} />
           <Route path="/AddMonthlydistance" element={<AddMonthlydistance/>}/>
           <Route path="/ManagecitiesPage" element={<ManageCities/>}/>
+          <Route path="/daily-distance" element={<DailyDistancePage />} />
+          <Route path="/monthly-distance" element={<MonthlyDistancePage />} />
           
 
 

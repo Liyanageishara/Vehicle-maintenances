@@ -58,18 +58,29 @@
   }
   
   /* Back button styling */
-  .btn-back {
-    font-weight: bold;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  
-  .btn-back:hover {
-    background-color: black;
-    color: white;
-  }
-  
+ /* General back button styling */
+.btn-back {
+  font-weight: bold;
+  padding: 10px 30px; /* Adjust padding for a balanced size */
+  border: none;
+  border-radius: 8px; /* Rounded corners for a modern look */
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  font-size: 16px; /* Readable font size */
+  text-transform: uppercase; /* Makes the text uppercase */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+/* Back button hover state */
+.btn-back:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  color: #e2e2e2; /* Slightly lighter text */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Back button active state */
+.btn-back:active {
+  background-color: #004080; /* Even darker on click */
+  transform: translateY(1px); /* Push down effect on click */
+}

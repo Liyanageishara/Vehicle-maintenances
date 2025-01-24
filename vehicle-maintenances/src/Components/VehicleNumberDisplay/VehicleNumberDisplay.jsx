@@ -45,7 +45,7 @@ const VehicleNumberDisplay = () => {
       <div className="error-container">
         <p className="text-danger">{error}</p>
         <button className="btn btn-secondary" onClick={() => navigate(-1)}>
-          Go Back
+          Back
         </button>
       </div>
     );
