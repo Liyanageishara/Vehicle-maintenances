@@ -30,6 +30,10 @@ const Dashboard = () => {
     navigate("/AddMonthlydistance");
   };
 
+  const handleCompanyRoutingMap = () => {
+    navigate("/ManagecitiesPage");
+  };
+
   return (
     <div className="dashboard-container container text-center mt-5">
       <h2 className="dashboard-title mb-4">VEHICLE TYPES</h2>
@@ -86,6 +90,12 @@ const Dashboard = () => {
             onClick={handleDistance}
           >
             MONTHLY DISTANCE
+          </button>
+          <button
+            className="btn action-button btn-secondary"
+            onClick={handleCompanyRoutingMap}
+          >
+            COMPANY ROUTING MAP
           </button>
         </div>
       </div>

@@ -19,7 +19,7 @@ import FuelUsageTable from './Components/FuelUsageTable/FuelUsageTable';
 import VehicleRevenueLicence from './Components/VehicleRevenueLicence/VehicleRevenueLicence';
 import RevenueLicenceTable from './Components/RevenueLicenceTable/RevenueLicenceTable';
 import AddMonthlydistance from './Components/AddMonthlyDistance/AddMonthlydistance';
-
+import ManageCities from './Components/SimpleMap/ManageCitiesPage';
 
 
 function App() {
@@ -44,6 +44,8 @@ function App() {
           <Route path="/AddVehicleDetail" element={<AddVehicleDetail />} />
           <Route path="/RevenueLicenceTable" element={<RevenueLicenceTable />} />
           <Route path="/AddMonthlydistance" element={<AddMonthlydistance/>}/>
+          <Route path="/ManagecitiesPage" element={<ManageCities/>}/>
+          
 
 
 

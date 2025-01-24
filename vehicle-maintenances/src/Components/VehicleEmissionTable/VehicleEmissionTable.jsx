@@ -97,10 +97,7 @@ const VehicleEmissionTable = () => {
         </table>
       </div>
 
-      {/* Close Button */}
-      <button className="btn btn-close" onClick={() => navigate(-1)}>
-        CLOSE
-      </button>
+      
     </div>
   );
 };

@@ -1,31 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import './AddMonthlydistance.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './AddMonthlydistance.css';
 
 function AddMonthlydistance() {
   const [vehicleNumber, setVehicleNumber] = useState('');
   const [distance, setDistance] = useState('');
+  const [date, setDate] = useState('');
+  const [description, setDescription] = useState('');
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Assuming vehicle number is passed from the previous page or comes from a global state/context
-    const storedVehicleNumber = "ABC123"; // Example vehicle number, replace with dynamic value
-    setVehicleNumber(storedVehicleNumber);
-  }, []);
+  const handleSubmit = async () => {
+    const monthlyDistanceData = {
+      vehicleNumber,
+      distance: parseFloat(distance),
+      date,
+      description,
+    };
 
-  const handleDistanceChange = (e) => {
-    setDistance(e.target.value);
-  };
+    try {
+      const response = await fetch('http://localhost:8090/api/monthly-distance/save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(monthlyDistanceData),
+      });
 
-  const handleSubmit = () => {
-    console.log("Vehicle Number:", vehicleNumber);
-    console.log("Distance:", distance);
-    navigate("/some-other-page"); // Redirect after submit
+      if (response.ok) {
+        console.log("Data saved successfully");
+        alert("Monthly distance data added successfully!");
+
+        // Reset form fields to empty
+        setDate('');
+        setVehicleNumber('');
+        setDistance('');
+        setDescription('');
+
+        // Navigate to the same page to stay on the form
+        navigate("/AddMonthlydistance");
+      } else {
+        console.error("Failed to save data");
+        alert("Failed to save data. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while saving the data.");
+    }
   };
 
   const handleBack = () => {
-    navigate("/previous-page"); // Navigate back to the previous page
+    navigate("/dashboard");
   };
 
   return (
@@ -33,35 +58,61 @@ function AddMonthlydistance() {
       <div className="container">
         <h2 className="text-center mb-4">Add Monthly Distance</h2>
 
-        {/* Vehicle Number */}
+        {/* Date Field */}
+        <div className="form-group mb-3">
+          <label htmlFor="date" className="form-label">Date</label>
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="form-control"
+          />
+        </div>
+
+        {/* Vehicle Number Field */}
         <div className="form-group mb-3">
           <label htmlFor="vehicleNumber" className="form-label">Vehicle Number</label>
           <input
             type="text"
             id="vehicleNumber"
             value={vehicleNumber}
-            readOnly
-            className="form-control bg-light"
+            onChange={(e) => setVehicleNumber(e.target.value)}
+            placeholder="Enter vehicle number"
+            className="form-control"
           />
         </div>
 
-        {/* Distance Input */}
+        {/* Distance Field */}
         <div className="form-group mb-3">
           <label htmlFor="distance" className="form-label">Distance (in km)</label>
           <input
             type="number"
             id="distance"
             value={distance}
-            onChange={handleDistanceChange}
+            onChange={(e) => setDistance(e.target.value)}
             placeholder="Enter distance"
             className="form-control"
           />
         </div>
 
+        {/* Description Field */}
+        <div className="form-group mb-3">
+          <label htmlFor="description" className="form-label">Description</label>
+          <textarea
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Enter description"
+            className="form-control"
+            rows="3"
+          ></textarea>
+        </div>
+
         {/* Submit and Back Buttons */}
         <div className="d-flex flex-column align-items-center mt-4">
-          <button className="btn-custom-submit mb-3" onClick={handleSubmit}>Submit</button>
-          <button className="btn-custom-back" onClick={handleBack}>Back</button>
+        <button className="btn-custom-submit mb-3" onClick={handleSubmit}>Submit</button>
+        <button className="btn-custom-back" onClick={handleBack}>Back</button>
         </div>
       </div>
     </div>

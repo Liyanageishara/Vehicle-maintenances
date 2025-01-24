@@ -1,0 +1,104 @@
+.manage-cities-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .manage-cities-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .manage-cities-form {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .manage-cities-form input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+  }
+  
+  .manage-cities-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .manage-cities-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .manage-cities-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .manage-cities-table th,
+  .manage-cities-table td {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .manage-cities-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .manage-cities-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  .manage-cities-table tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  .manage-cities-table button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .manage-cities-table button:hover {
+    background-color: #bd2130;
+  }
+  .navigation-button-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .calculate-routing-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .calculate-routing-button:hover {
+    background-color: #218838;
+  }
+  

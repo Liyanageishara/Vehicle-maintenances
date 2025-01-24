@@ -36,7 +36,8 @@
 .btn-custom-submit {
     background-color: #ff0062;
     color: white;
-    width: 300%;
+    width: 200px;
+    height: 60px;
     font-size: 1.1rem;
     padding: 12px 20px;
     border-radius: 5px;
@@ -50,7 +51,8 @@
 .btn-custom-back {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
-    width: 200%;
+    width: 200px;
+    height: 60px;
     font-size: 1.1rem;
     padding: 12px 20px;
     border-radius: 5px;

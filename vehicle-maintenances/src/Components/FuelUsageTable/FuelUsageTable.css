@@ -95,4 +95,85 @@
     background-color: black;
     color: white;
   }
-  
+/* Styling for the Delete Button */
+/* Add Button */
+.btn-add {
+  background-color: #4caf50; /* Green for add button */
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-add:hover {
+  background-color: #43a047; /* Darker green on hover */
+  transform: scale(1.1);
+}
+
+.btn-add:active {
+  background-color: #388e3c; /* Even darker green on click */
+  transform: scale(1);
+}
+
+/* Back Button */
+.back-button {
+  background-color: #2196f3; /* Blue for back button */
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #1e88e5; /* Darker blue on hover */
+  transform: scale(1.1);
+}
+
+.back-button:active {
+  background-color: #1976d2; /* Even darker blue on click */
+  transform: scale(1);
+}
+
+/* Styling for Delete Button */
+/* Styling for Delete Button */
+.btn-delete {
+  background: linear-gradient(to right, #ff5757, #ff4141); /* Gradient red */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 6px 12px; /* Adjust padding for better fit */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  font-size: 14px; /* Slightly larger text */
+  font-weight: bold; /* Make the text stand out */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover and shadow effects */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a raised effect */
+  display: inline-block;
+  text-transform: uppercase; /* Capitalize the text */
+}
+
+/* Hover Effect */
+.btn-delete:hover {
+  background: linear-gradient(to right, #ff4141, #ff2020); /* Darker red gradient */
+  transform: scale(1.05); /* Slight enlargement on hover */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Focus Effect */
+.btn-delete:focus {
+  outline: 2px solid #ff8080; /* Light red outline for accessibility */
+}
+
+/* Align Button in Table Cell */
+td .btn-delete {
+  margin: 0 auto; /* Center horizontally */
+  display: flex; /* Flex for alignment */
+  align-items: center; /* Vertically align */
+  justify-content: center; /* Center horizontally */
+  width: 100%; /* Ensure it takes the full width of the cell */
+}
