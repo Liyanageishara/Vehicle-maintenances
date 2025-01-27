@@ -140,7 +140,7 @@ const EmissionTestForm = () => {
             SUBMIT
           </button>
           <button type="button" className="btn btn-view" onClick={handleView}>
-            VIEW
+            BACK
           </button>
         </div>
       </form>

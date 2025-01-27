@@ -1,86 +1,113 @@
-/* General container styling */
-.container {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
-    color: white;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 10px;
-    padding: 20px;
-    position: relative; /* Ensures content is layered */
-    z-index: 2; /* Ensures content is above the background */
-  }
-  
-  /* Fullscreen background image */
-  body {
-    background-image: url("/src/Asserts/Login/img-01.png"); /* Replace with the correct image path */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Icon styling */
-  .icon {
-    font-size: 50px;
-    margin-bottom: 20px;
-  }
-  
-  /* Title styling */
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  /* List group styling */
-  .list-group {
-    width: 50%; /* Center alignment */
-    margin: 0 auto;
-  }
-  
-  .list-group-item {
-    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-    border: 1px solid white;
-    color: white;
-    font-size: 18px;
-    margin-bottom: 10px;
-    transition: background 0.3s ease;
-  }
-  
-  .list-group-item:hover {
-    background: rgba(255, 255, 255, 0.5); /* Slightly brighter on hover */
-    cursor: pointer;
-  }
-  
-  /* Back button styling */
- /* General back button styling */
-.btn-back {
-  font-weight: bold;
-  padding: 10px 30px; /* Adjust padding for a balanced size */
+body {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url('/src/Asserts/Login/img-01.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #f8f9fa;
+}
+
+.vehicle-icon {
+  font-size: 2rem;
+}
+
+.card {
+  border-radius: 12px; /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 80px; /* Fixed height for uniform size */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Space between content */
+  padding: 10px 20px; /* Add padding for better spacing */
+  width: 100%; /* Ensure all cards are full-width */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.card-body {
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Ensure content is spaced evenly */
+  width: 100%; /* Ensure full-width layout */
+}
+
+.vehicle-icon {
+  font-size: 1.5rem; /* Adjust icon size */
+  color: #ffc107; /* Match theme color */
+  margin-right: 15px; /* Space between icon and text */
+}
+
+.card h5 {
+  font-size: 1rem; /* Uniform text size */
+  margin: 0; /* Remove margin for alignment */
+}
+
+.card button {
+  font-size: 0.9rem; /* Button text size */
+  padding: 6px 12px; /* Button padding for consistent size */
+  white-space: nowrap; /* Prevent button text wrapping */
+}
+
+
+h2 i {
+  font-size: 2.5rem;
+}
+
+/* Small Back Button Styling */
+.back-button-small {
+  font-size: 0.875rem; /* Small font size */
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black font color */
+  border: 1px solid #cccccc; /* Light gray border */
+  transition: all 0.3s ease;
+}
+
+.back-button-small:hover {
+  background-color: #f0f0f0;
+  color: #000000;
+  border-color: #999999; /* Darker gray on hover */
+}
+
+.btn-warning {
+  background-color: #ffc107;
   border: none;
-  border-radius: 8px; /* Rounded corners for a modern look */
-  background-color: #007bff; /* Blue background */
-  color: white; /* White text */
-  font-size: 16px; /* Readable font size */
-  text-transform: uppercase; /* Makes the text uppercase */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
-  transition: all 0.3s ease; /* Smooth hover effect */
 }
 
-/* Back button hover state */
-.btn-back:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  color: #e2e2e2; /* Slightly lighter text */
-  transform: translateY(-2px); /* Lift effect on hover */
+.btn-warning:hover {
+  background-color: #e0a800;
+  color: #fff;
 }
 
-/* Back button active state */
-.btn-back:active {
-  background-color: #004080; /* Even darker on click */
-  transform: translateY(1px); /* Push down effect on click */
+/* Professional Back Button Styling */
+.back-button-modern {
+  font-size: 1rem; /* Comfortable font size */
+  font-weight: 600; /* Slightly bold for emphasis */
+  padding: 10px 20px; /* Adequate padding for better clickability */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #ffffff; /* White background for a clean look */
+  color: #000000; /* Black font color for contrast */
+  border: 1px solid #cccccc; /* Subtle gray border for a refined touch */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a light shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  display: inline-flex; /* Ensures proper alignment of icon and text */
+  align-items: center; /* Vertically aligns the icon and text */
+  gap: 8px; /* Adds spacing between the icon and the text */
+}
+
+.back-button-modern:hover {
+  background-color: #f8f8f8; /* Slightly darker background on hover */
+  color: #000000; /* Ensure font color remains black */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  border-color: #999999; /* Darker border on hover */
+}
+
+.back-button-modern i {
+  font-size: 1.2rem; /* Slightly larger icon size for emphasis */
 }

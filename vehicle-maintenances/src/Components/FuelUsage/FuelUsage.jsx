@@ -114,7 +114,7 @@ const FuelUsage = () => {
           SUBMIT
         </button>
         <button className="btn btn-view" onClick={handleView}>
-          VIEW
+          BACK
         </button>
       </div>
     </div>

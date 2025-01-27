@@ -127,7 +127,7 @@ const VehicleRevenueLicence = () => {
 
         </button>
         <button className="btn btn-view" onClick={() => navigate("/RevenueLicenceTable")}>
-          VIEW
+          BACK
         </button>
       </div>
     </div>

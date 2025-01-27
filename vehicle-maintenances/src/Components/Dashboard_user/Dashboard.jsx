@@ -34,15 +34,20 @@ const Dashboard = () => {
     navigate("/ManagecitiesPage");
   };
 
-  const handleDailyDistence = () => {
+  const handleDailyDistance = () => {
     navigate("/daily-distance");
   };
+
   const RegisterMap = () => {
     navigate("/register");
   };
 
-  const handleDailyRoutingDetils = () => {
+  const handleDailyRoutingDetails = () => {
     navigate("/view-routing-details");
+  };
+
+  const handleLogout = () => {
+    navigate("/");
   };
 
   return (
@@ -58,7 +63,7 @@ const Dashboard = () => {
           { type: "lorry", icon: "fas fa-truck", label: "Lorries" },
           { type: "other", icon: "fas fa-car-side", label: "Others" },
         ].map(({ type, icon, label }) => (
-          <div className="col-6 col-md-4 col-lg-3" key={type}>
+          <div className="col-6 col-sm-4 col-lg-3" key={type}>
             <button
               className="btn vehicle-button w-100 p-3"
               onClick={() => handleVehicleTypeClick(type)}
@@ -72,66 +77,49 @@ const Dashboard = () => {
 
       <div className="action-buttons-container row mt-5">
         <div className="col-12">
-          <button
-            className="btn action-button btn-primary"
-            onClick={handleAddVehicle}
-          >
-            ADD VEHICLE
-          </button>
-          <button
-            className="btn action-button btn-success"
-            onClick={handleEmissionTest}
-          >
-            EMISSION TEST
-          </button>
-          <button
-            className="btn action-button btn-warning"
-            onClick={handleRevenueLicence}
-          >
-            REVENUE LICENCE
-          </button>
-          <button
-            className="btn action-button btn-danger"
-            onClick={handleFuelUsage}
-          >
-            FUEL USAGE
-          </button>
-          <button
-            className="btn action-button btn-info"
-            onClick={handleDistance}
-          >
-            MONTHLY DISTANCE
-          </button>
-          <button
-            className="btn action-button btn-primary"
-            onClick={handleCompanyRoutingMap}
-          >
-            COMPANY ROUTING MAP
-          </button>
-          <button
-            className="btn action-button btn-success"
-            onClick={handleDailyDistence}
-          >
-            DAILY ROUTING
-          </button>
-          <button
-  className="btn action-button btn-info"
-  onClick={() => window.open("https://drive.google.com/drive/folders/1o3ILrxhz4MoW7x3g5OG8c5TwrAQ2sFvc?usp=drive_link", "_blank")}
->
-  Vehicle Images
-</button>
-<button
-            className="btn action-button btn-info"
-            onClick={RegisterMap}
-          >
-            Register User
-          </button>
-          <button
-            className="btn action-button btn-danger"
-            onClick={handleDailyRoutingDetils}
-          >
-            SEARCH ROUTING DETAILS
-          </button>
+          <div className="d-flex flex-wrap justify-content-center gap-3">
+            <button className="btn action-button btn-primary" onClick={handleAddVehicle}>
+              ADD VEHICLE
+            </button>
+            <button className="btn action-button btn-success" onClick={handleEmissionTest}>
+              EMISSION TEST
+            </button>
+            <button className="btn action-button btn-warning" onClick={handleRevenueLicence}>
+              REVENUE LICENCE
+            </button>
+            <button className="btn action-button btn-danger" onClick={handleFuelUsage}>
+              FUEL USAGE
+            </button>
+            <button className="btn action-button btn-info" onClick={handleDistance}>
+              MONTHLY DISTANCE
+            </button>
+            <button className="btn action-button btn-primary" onClick={handleCompanyRoutingMap}>
+              COMPANY ROUTING MAP
+            </button>
+            <button className="btn action-button btn-success" onClick={handleDailyDistance}>
+              DAILY ROUTING
+            </button>
+            <button
+              className="btn action-button btn-info"
+              onClick={() =>
+                window.open(
+                  "https://drive.google.com/drive/folders/1o3ILrxhz4MoW7x3g5OG8c5TwrAQ2sFvc?usp=drive_link",
+                  "_blank"
+                )
+              }
+            >
+              VEHICLE IMAGE
+            </button>
+            <button className="btn action-button btn-info" onClick={RegisterMap}>
+              REGISTER USER
+            </button>
+            <button className="btn action-button btn-danger" onClick={handleDailyRoutingDetails}>
+              SEARCH ROUTING DETAILS
+            </button>
+            <button className="btn action-button btn-secondary" onClick={handleLogout}>
+              LOGOUT
+            </button>
+          </div>
         </div>
       </div>
     </div>

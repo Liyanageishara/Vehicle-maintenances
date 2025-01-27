@@ -1,104 +1,138 @@
+/* General container styling */
 .manage-cities-container {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .manage-cities-title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Title styling */
+.manage-cities-title {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #343a40;
+}
+
+/* Form styling */
+.manage-cities-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.manage-cities-form input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.manage-cities-form button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.manage-cities-form button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Table styling */
+.manage-cities-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Table header */
+.manage-cities-table th {
+  background-color: #007bff;
+  color: #ffffff; /* White text for the header */
+  text-transform: uppercase;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Table rows */
+.manage-cities-table td {
+  padding: 12px;
+  text-align: center;
+  color: #343a40; /* Dark gray font for rows */
+}
+
+.manage-cities-table tr:nth-child(even) {
+  background-color: #f8f9fa; /* Light gray for even rows */
+}
+
+.manage-cities-table tr:nth-child(odd) {
+  background-color: #ffffff; /* White for odd rows */
+}
+
+.manage-cities-table tr:hover td {
+  background-color: #e9ecef; /* Light hover effect */
+  color: #212529; /* Slightly darker font on hover */
+}
+
+/* Delete button inside the table */
+.manage-cities-table button {
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.manage-cities-table button:hover {
+  background-color: #bd2130;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
   .manage-cities-form {
-    display: flex;
+    flex-direction: column;
     gap: 10px;
-    justify-content: space-between;
-    margin-bottom: 20px;
   }
-  
-  .manage-cities-form input {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-  }
-  
-  .manage-cities-form button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .manage-cities-form button:hover {
-    background-color: #0056b3;
-  }
-  
-  .manage-cities-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
+
   .manage-cities-table th,
   .manage-cities-table td {
-    border: 1px solid #dee2e6;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .manage-cities-table th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .manage-cities-table tr:nth-child(even) {
-    background-color: #f8f9fa;
-  }
-  
-  .manage-cities-table tr:hover {
-    background-color: #e9ecef;
-  }
-  
-  .manage-cities-table button {
-    padding: 5px 10px;
     font-size: 14px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px;
   }
-  
-  .manage-cities-table button:hover {
-    background-color: #bd2130;
+}
+
+@media (max-width: 576px) {
+  .manage-cities-container {
+    padding: 15px;
   }
-  .navigation-button-container {
-    margin-top: 20px;
-    text-align: center;
+
+  .manage-cities-form button {
+    font-size: 14px;
+    padding: 10px 15px;
   }
-  
-  .calculate-routing-button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .calculate-routing-button:hover {
-    background-color: #218838;
-  }
-  
+}

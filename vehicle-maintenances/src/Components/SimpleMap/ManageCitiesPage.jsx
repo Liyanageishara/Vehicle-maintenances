@@ -15,7 +15,6 @@ const ManageCities = () => {
   const fetchCities = async () => {
     try {
       const response = await axios.get("http://localhost:8090/api/city");
-      console.log("Fetched Cities:", response.data); // Debug log
       setCities(response.data);
     } catch (error) {
       console.error("Error fetching cities:", error);
@@ -23,7 +22,6 @@ const ManageCities = () => {
   };
 
   const handleAddCity = async () => {
-    console.log("Adding city with data:", newCity); // Debug log
     try {
       await axios.post("http://localhost:8090/api/city/add", newCity);
       fetchCities();
@@ -41,8 +39,6 @@ const ManageCities = () => {
       console.error("Error deleting city:", error);
     }
   };
-
-
 
   return (
     <div className="manage-cities-container">
@@ -92,7 +88,6 @@ const ManageCities = () => {
           ))}
         </tbody>
       </table>
-    
     </div>
   );
 };

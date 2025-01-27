@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./VehicleDetails.css"; // Import custom CSS
+import jsPDF from "jspdf";
+import "jspdf-autotable";
+import "./VehicleDetails.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const VehicleDetails = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { vehicleNumber } = location.state || { vehicleNumber: "Unknown" };
+  const { vehicleNumber } = location.state || {
+    vehicleNumber: "Unknown",
+  };
 
   const [vehicleDetails, setVehicleDetails] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +22,7 @@ const VehicleDetails = () => {
         );
         if (response.ok) {
           const data = await response.json();
-          setVehicleDetails(data); // Set the array of rows directly
+          setVehicleDetails(data);
         } else {
           console.error("Failed to fetch vehicle details");
         }
@@ -33,7 +37,28 @@ const VehicleDetails = () => {
   }, [vehicleNumber]);
 
   const handleAddVehicleDetails = () => {
-    navigate("/AddVehicleDetail", { state: { vehicleNumber } }); // Pass vehicle number to the AddVehicleDetail page
+    navigate("/AddVehicleDetail", { state: { vehicleNumber } });
+  };
+
+  const handleDownloadPDF = () => {
+    const doc = new jsPDF();
+    doc.text(`Vehicle Report: ${vehicleNumber}`, 14, 10);
+
+    const tableData = vehicleDetails.map((detail) => [
+      detail.date,
+      detail.type,
+      detail.description,
+      detail.cost,
+      detail.place,
+      detail.millage,
+    ]);
+
+    doc.autoTable({
+      head: [["Date", "Type", "Description", "Cost", "Place", "Millage"]],
+      body: tableData,
+    });
+
+    doc.save(`${vehicleNumber}_report.pdf`);
   };
 
   if (loading) {
@@ -41,38 +66,46 @@ const VehicleDetails = () => {
   }
 
   return (
-    <div className="container-fluid p-0">
+    <div className="container-fluid p-2 p-sm-3">
       {/* Upper Panel */}
-      <div className="text-light py-2 px-3 d-flex align-items-center justify-content-between btn-pannel">
-        <button className="btn back-b" onClick={() => navigate(-1)}>
-          Back
-        </button>
-        <button
-          className="btn-add-details"
-          onClick={handleAddVehicleDetails}
-        >
-          Add Vehicle Details
-        </button>
+      <div className="btn-panel d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2">
+          <button className="btn small-btn back-btn mb-2 mb-sm-0" onClick={() => navigate(-1)}>
+      <i className="fas fa-arrow-left"></i> Back
+    </button>
+
+        <div className="d-flex flex-column flex-sm-row gap-2">
+          <button
+            className="btn small-btn add-btn"
+            onClick={handleAddVehicleDetails}
+          >
+            <i className="fas fa-plus-circle"></i> Add Details
+          </button>
+          <button
+            className="btn small-btn download-btn"
+            onClick={handleDownloadPDF}
+          >
+            <i className="fas fa-download"></i> Download
+          </button>
+        </div>
       </div>
 
       {/* Main Content */}
-      <div className="container mt-3">
-        <div className="header">
-          <div className="icon">🚗</div>
+      <div className="details-container mt-3">
+        <div className="header text-center">
           <h2 className="title">{vehicleNumber}</h2>
         </div>
 
         {/* Table */}
-        <div className="table-container">
+        <div className="table-responsive">
           <table className="table table-striped table-hover">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Type</th>
-                <th>Description</th>
-                <th>Cost</th>
-                <th>Place</th>
-                <th>Millage</th>
+                <th><i className="fas fa-calendar-alt"></i> Date</th>
+                <th><i className="fas fa-list"></i> Type</th>
+                <th><i className="fas fa-align-left"></i> Description</th>
+                <th><i className="fas fa-solid fa-rupee-sign"></i> Cost</th>
+                <th><i className="fas fa-map-marker-alt"></i> Place</th>
+                <th><i className="fas fa-tachometer-alt"></i> Millage</th>
               </tr>
             </thead>
             <tbody>
@@ -81,7 +114,7 @@ const VehicleDetails = () => {
                   <tr key={index}>
                     <td>{detail.date}</td>
                     <td>{detail.type}</td>
-                    <td>{detail.description}</td>
+                    <td className="text-wrap">{detail.description}</td>
                     <td>{detail.cost}</td>
                     <td>{detail.place}</td>
                     <td>{detail.millage}</td>
