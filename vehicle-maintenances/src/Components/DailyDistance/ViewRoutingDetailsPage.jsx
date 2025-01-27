@@ -16,7 +16,7 @@ const ViewRoutingDetailsPage = () => {
     setError("");
 
     try {
-      const response = await axios.get(`http://localhost:8090/api/routing-details`, {
+      const response = await axios.get(`https://javapaas-191377-0.cloudclusters.net/api/routing-details`, {
         params: { vehicleNumber },
       });
 

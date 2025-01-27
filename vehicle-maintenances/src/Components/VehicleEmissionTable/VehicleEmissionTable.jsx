@@ -10,7 +10,7 @@ const VehicleEmissionTable = () => {
   // Fetch vehicle emission data from the backend
   const fetchVehicleEmissionData = async () => {
     try {
-      const response = await axios.get("http://localhost:8090/api/emission/all");
+      const response = await axios.get("https://javapaas-191377-0.cloudclusters.net/api/emission/all");
       setVehicleEmissionData(response.data); // Set fetched data to state
     } catch (error) {
       console.error("Error fetching vehicle emission data:", error);
@@ -20,7 +20,7 @@ const VehicleEmissionTable = () => {
   // Delete a record by ID
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:8090/api/emission/delete/${id}`);
+      const response = await axios.delete(`https://javapaas-191377-0.cloudclusters.net/api/emission/delete/${id}`);
       if (response.status === 200) {
         alert("Record deleted successfully!");
         fetchVehicleEmissionData(); // Refresh data after deletion

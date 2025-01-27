@@ -14,7 +14,7 @@ const ManageCities = () => {
 
   const fetchCities = async () => {
     try {
-      const response = await axios.get("http://localhost:8090/api/city");
+      const response = await axios.get("https://javapaas-191377-0.cloudclusters.net/api/city");
       setCities(response.data);
     } catch (error) {
       console.error("Error fetching cities:", error);
@@ -23,7 +23,7 @@ const ManageCities = () => {
 
   const handleAddCity = async () => {
     try {
-      await axios.post("http://localhost:8090/api/city/add", newCity);
+      await axios.post("https://javapaas-191377-0.cloudclusters.net/api/city/add", newCity);
       fetchCities();
       setNewCity({ fromCity: "", toCity: "", distance: "" });
     } catch (error) {
@@ -33,7 +33,7 @@ const ManageCities = () => {
 
   const handleDeleteCity = async (id) => {
     try {
-      await axios.delete(`http://localhost:8090/api/city/${id}`);
+      await axios.delete(`https://javapaas-191377-0.cloudclusters.net/api/city/${id}`);
       fetchCities();
     } catch (error) {
       console.error("Error deleting city:", error);

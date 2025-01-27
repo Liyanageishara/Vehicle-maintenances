@@ -44,7 +44,7 @@ const AddVehicleDetail = () => {
     const data = { ...form, rows }; // Prepare the data for submission
 
     try {
-      const response = await fetch("http://localhost:8090/api/add-vehicle/save", {
+      const response = await fetch("https://javapaas-191377-0.cloudclusters.net/api/add-vehicle/save", {
         method: "POST",
         headers: {
           "Content-Type": "application/json", // Ensure JSON data

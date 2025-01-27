@@ -12,7 +12,7 @@ const RevenueLicenceTable = () => {
   // Function to fetch revenue licence data from the backend
   const fetchRevenueLicenceData = async () => {
     try {
-      const response = await axios.get("http://localhost:8090/api/revenue_licence/all");
+      const response = await axios.get("https://javapaas-191377-0.cloudclusters.net/api/revenue_licence/all");
       setRevenueLicenceData(response.data); // Set data to state
     } catch (error) {
       console.error("Error fetching revenue licence data:", error);
@@ -23,7 +23,7 @@ const RevenueLicenceTable = () => {
   const handleDelete = async (revenueId) => {
     if (window.confirm("Are you sure you want to delete this record?")) {
       try {
-        await axios.delete(`http://localhost:8090/api/revenue_licence/delete/${revenueId}`);
+        await axios.delete(`https://javapaas-191377-0.cloudclusters.net/api/revenue_licence/delete/${revenueId}`);
         alert("Record deleted successfully!");
         // Refetch data after deletion
         fetchRevenueLicenceData();

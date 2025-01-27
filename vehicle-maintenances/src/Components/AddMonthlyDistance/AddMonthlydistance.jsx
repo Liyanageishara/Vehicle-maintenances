@@ -19,7 +19,7 @@ function AddMonthlydistance() {
     };
 
     try {
-      const response = await fetch('http://localhost:8090/api/monthly-distance/save', {
+      const response = await fetch('https://javapaas-191377-0.cloudclusters.net/api/monthly-distance/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

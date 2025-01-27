@@ -28,7 +28,7 @@ const VehicleNumberDisplay = () => {
     const fetchVehicleNumbers = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8090/vehicle-info/getVehicleNumbersByType/${vehicleType}`
+          `https://javapaas-191377-0.cloudclusters.net/vehicle-info/getVehicleNumbersByType/${vehicleType}`
         );
         if (response.ok) {
           const data = await response.json();

@@ -23,7 +23,7 @@ const AddVehicleForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8090/vehicle-info/saveVehicle", {
+      const response = await fetch("https://javapaas-191377-0.cloudclusters.net/vehicle-info/saveVehicle", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

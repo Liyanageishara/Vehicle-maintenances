@@ -18,7 +18,7 @@ const VehicleDetails = () => {
     const fetchVehicleDetails = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8090/api/add-vehicle/details/${vehicleNumber}`
+          `https://javapaas-191377-0.cloudclusters.net/api/add-vehicle/details/${vehicleNumber}`
         );
         if (response.ok) {
           const data = await response.json();

@@ -18,7 +18,7 @@ const DailyDistancePage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8090/api/daily-distance/add", {
+      const response = await axios.post("https://javapaas-191377-0.cloudclusters.net/api/daily-distance/add", {
         date: formData.date,
         vehicleNumber: formData.vehicleNumber,
         distance: parseInt(formData.distance),

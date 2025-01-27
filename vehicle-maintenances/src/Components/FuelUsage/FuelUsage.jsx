@@ -27,7 +27,7 @@ const FuelUsage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8090/api/fuel-usage/save", formData);
+      const response = await axios.post("https://javapaas-191377-0.cloudclusters.net/api/fuel-usage/save", formData);
       if (response.status === 200) {
         alert("Fuel usage data added successfully!");
         setForm({

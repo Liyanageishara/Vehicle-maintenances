@@ -51,25 +51,22 @@ const Dashboard = () => {
 
   return (
     <div
-      className="container text-center mt-5"
+      className="dashboard_container text-center mt-5"
       style={{
-        backgroundImage: "url('/src/Asserts/Login/img-01.png')",
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/src/Asserts/Login/img-01.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        padding: "20px",
+        padding: "40px",
         borderRadius: "16px",
-        color: "#333",
+        color: "white",
         boxShadow: "0 8px 16px rgba(0, 0, 0, 0.6)",
         minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
       }}
     >
       <h2
         style={{
           fontFamily: "Poppins, sans-serif",
-          fontSize: "2rem",
+          fontSize: "3rem",
           fontWeight: "600",
           textTransform: "uppercase",
           color: "#fff",
@@ -117,92 +114,40 @@ const Dashboard = () => {
         ))}
       </div>
 
-      <div className="row mt-4">
-        <div className="col-12">
-          <button
-            className="btn btn-primary m-2 w-100"
-            onClick={handleAddVehicle}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            ADD VEHICLE
-          </button>
-          <button
-            className="btn btn-success m-2 w-100"
-            onClick={handleEmissionTest}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            EMISSION TEST
-          </button>
-          <button
-            className="btn btn-warning m-2 w-100"
-            onClick={handleRevenueLicence}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            REVENUE LICENCE
-          </button>
-          <button
-            className="btn btn-danger m-2 w-100"
-            onClick={handleFuelUsage}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            FUEL USAGE
-          </button>
-          <button
-            className="btn btn-info m-2 w-100"
-            onClick={handleDistance}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            MONTHLY DISTANCE
-          </button>
-          <button
-            className="btn btn-primary m-2 w-100"
-            onClick={handleCompanyRoutingMap}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            COMPANY ROUTING MAP
-          </button>
-          <button
-            className="btn btn-success m-2 w-100"
-            onClick={handleDailyDistance}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            DAILY ROUTING
-          </button>
-          <button
-            className="btn btn-info m-2 w-100"
-            onClick={() =>
-              window.open(
-                "https://drive.google.com/drive/folders/1o3ILrxhz4MoW7x3g5OG8c5TwrAQ2sFvc?usp=drive_link",
-                "_blank"
-              )
-            }
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            VEHICLE IMAGE
-          </button>
-          <button
-            className="btn btn-info m-2 w-100"
-            onClick={RegisterMap}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            REGISTER USER
-          </button>
-          <button
-            className="btn btn-danger m-2 w-100"
-            onClick={handleDailyRoutingDetails}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            SEARCH ROUTING DETAILS
-          </button>
-          <button
-            className="btn btn-secondary m-2 w-100"
-            onClick={handleLogout}
-            style={{ padding: "14px 24px", borderRadius: "10px" }}
-          >
-            LOGOUT
-          </button>
-        </div>
-      </div>
+      <div className="row mt-2">
+  {[
+    { label: "ADD VEHICLE", onClick: handleAddVehicle, className: "btn-primary" },
+    { label: "EMISSION TEST", onClick: handleEmissionTest, className: "btn-success" },
+    { label: "REVENUE LICENCE", onClick: handleRevenueLicence, className: "btn-warning" },
+    { label: "FUEL USAGE", onClick: handleFuelUsage, className: "btn-danger" },
+    { label: "MONTHLY DISTANCE", onClick: handleDistance, className: "btn-info" },
+    { label: "COMPANY ROUTING MAP", onClick: handleCompanyRoutingMap, className: "btn-primary" },
+    { label: "DAILY ROUTING", onClick: handleDailyDistance, className: "btn-success" },
+    {
+      label: "VEHICLE IMAGE",
+      onClick: () =>
+        window.open(
+          "https://drive.google.com/drive/folders/1o3ILrxhz4MoW7x3g5OG8c5TwrAQ2sFvc?usp=drive_link",
+          "_blank"
+        ),
+      className: "btn-info",
+    },
+    { label: "REGISTER USER", onClick: RegisterMap, className: "btn-info" },
+    { label: "SEARCH ROUTING DETAILS", onClick: handleDailyRoutingDetails, className: "btn-danger" },
+    { label: "LOGOUT", onClick: handleLogout, className: "btn-secondary" },
+  ].map(({ label, onClick, className }, index) => (
+    <div className="col-12 col-md-6" key={index}>
+      <button
+        className={`btn ${className} m-2 w-100`}
+        onClick={onClick}
+        style={{ padding: "14px 24px", borderRadius: "10px" }}
+      >
+        {label}
+      </button>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 };

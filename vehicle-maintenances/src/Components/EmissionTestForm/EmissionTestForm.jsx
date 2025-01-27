@@ -30,7 +30,7 @@ const EmissionTestForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:8090/api/emission/save", [formData]);
+      const response = await axios.post("https://javapaas-191377-0.cloudclusters.net/api/emission/save", [formData]);
       if (response.status === 200) {
         alert("Emission Test Certificate added successfully!");
         setFormData({

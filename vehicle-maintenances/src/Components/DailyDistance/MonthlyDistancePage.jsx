@@ -15,7 +15,7 @@ const MonthlyDistancePage = () => {
       const formattedStartDate = new Date(startDate).toISOString().split("T")[0];
       const formattedEndDate = new Date(endDate).toISOString().split("T")[0];
 
-      const response = await axios.get("http://localhost:8090/api/monthly-distance", {
+      const response = await axios.get("https://javapaas-191377-0.cloudclusters.net/api/monthly-distance", {
         params: {
           vehicleNumber,
           startDate: formattedStartDate,

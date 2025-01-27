@@ -13,7 +13,7 @@ const FuelUsageTable = () => {
   useEffect(() => {
     const fetchFuelUsageData = async () => {
       try {
-        const response = await axios.get("http://localhost:8090/api/fuel-usage/all"); // Replace with your backend URL
+        const response = await axios.get("https://javapaas-191377-0.cloudclusters.net/api/fuel-usage/all"); // Replace with your backend URL
         setFuelUsageData(response.data);
         setLoading(false);
       } catch (err) {
